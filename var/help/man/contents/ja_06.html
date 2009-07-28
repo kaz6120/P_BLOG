@@ -1,0 +1,34 @@
+<ul class="flip-menu">
+<li><a href="./index.php" accesskey="m">P_BLOG マニュアル</a></li>
+<li><a href="./index.php?id=ja_00" accesskey="i">索引</a></li>
+<li><span class="cur-tab">PHPの環境設定</span></li>
+</ul>
+<!-- Begin .section h2 -->
+<div class="section" id="toc">
+<h2>PHPの環境設定</h2>
+<ul>
+<li><a href="./index.php?id=ja_06#setting-upload-max">アップロード上限値を設定する</a></li>
+</ul>
+</div>
+<div class="section" id="setting-upload-max">
+<h2>アップロード上限値を設定する</h2>
+<p>PHP「POST」のMAX値は8MB、ファイルアップロードMAX値は2MBに設定されています。
+それ以上のサイズのファイルをアップロード可にするには、<code class="filename">/usr/local/lib/php.ini</code>ファイルの以下の
+部分を書き換えます。
+</p>
+<div class="command">
+<p>310行目あたり</p>
+<code>post_max_size = <span class="important">8M</span></code>
+<p>378行目あたり</p>
+<code>upload_max_filesize = <span class="important">2M</span></code>
+</div>
+<p>を</p>
+<div class="example">
+<pre>
+post_max_size = <span class="important">100M</span>
+upload_max_filesize = <span class="important">100M</span>
+</pre>
+</div>
+<p>のように変更して下さい。</p>
+<p>もしあなたが<code class="filename">php.ini</code>を編集出来る権限がない場合はシステム管理者にご相談下さい。</p>
+</div>

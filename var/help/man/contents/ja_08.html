@@ -1,0 +1,112 @@
+<ul class="flip-menu">
+<li><a href="./index.php" accesskey="m">P_BLOG マニュアル</a></li>
+<li><a href="./index.php?id=ja_00" accesskey="i">索引</a></li>
+<li><span class="cur-tab">ディベロッパー向けTechNote</span></li>
+</ul>
+<!-- Begin .section h2 -->
+<div class="section" id="toc">
+<h2>ディベロッパー向けTechNote</h2>
+<ul>
+ <li><a href="./index.php?id=ja_08#about-module-structure">P_BLOG モジュール構成について</a></li>
+ <li><a href="./index.php?id=ja_08#about-include">「include」内の関数ファイル「fnc_*」ファイルについて</a></li>
+ <li><a href="./index.php?id=ja_08#about-plugin">プラグインモジュールについて</a></li>
+</ul>
+</div>
+<!-- Begin .section h2 -->
+<div class="section" id="about-module-structure">
+<h2>P_BLOG モジュール構成について</h2>
+<p>P_BLOGの基本構成は以下のようになっています。各ディレクトリの定義は以下のようになっています。</p>
+<p class="float-left">
+<img src="./contents/resources/p_blog_module_structure.png" width="253" height="432" alt="Structure" />
+</p>
+<dl>
+<dt><code class="filename">admin</code></dt>
+<dd>管理モードで使われるファイルを納めるディレクトリです。</dd>
+<dt><code class="filename">contents</code></dt>
+<dd>メインのphpにより呼び出されるプレゼンテーション部、読み込み用コンテンツファイルを納めるディレクトリです。ファイルタイプは .inc.php、.inc、.txt、.html、.tplなどが推奨です。</dd>
+<dt><code class="filename">resources</code></dt>
+<dd>コンテンツファイルで使用されるリソースファイル、バイナリファイルを納めるディレクトリです。</dd>
+<dt><code class="filename">images</code></dt>
+<dd>モジュール全体で使用される画像ファイルを納めるディレクトリです。</dd>
+<dt><code class="filename">include</code></dt>
+<dd>インクルード(読み込み)ファイルを納めるディレクトリです。<abbr title="User Defined Function">UDF</abbr> (ユーザー定義関数。ファイルのPREFIXは「fnc_」を推奨)や定数ファイル(constants.php)などを納めるディレクトリです。</dd>
+<dt><code class="filename">lang</code></dt>
+<dd>ローカライズ可能な文字列変数を納めるディレクトリです。変数のグループは「<var>$lang['...']</var>」としています。</dd>
+</dl>
+<p class="float-clear">P_BLOG自体も基本的にこのモジュール構成の規則に則って構成するものとします。例外として、画像のパスなどをシンプルにするためアップロード用のディレクトリ「<code class="filename">/resources/</code>」のみ、トップレベルディレクトリに配置しています。</p>
+<p>基本的に各ファイル、リソース、および関数は下位の階層へと継承され参照可能となるもの、とします。</p>
+</div>
+<!-- End .section h2 -->
+
+<!-- Begin .section h2 -->
+<div class="section" id="about-include">
+<h2>「<code class="filename">include</code>」内の関数ファイル「<code class="filename">fnc_*</code>」ファイルについて</h2>
+<p>各関数は「<code class="filename">/include</code>」内の「<code class="filename">fnc_*</code>」で始まるファイルに記述しています。最も上位にある「<code class="filename">/include</code>」ディレクトリに納められている「<code class="filename">fnc_base.inc.php</code>」が、基盤となる関数定義ファイルで、全てのページで使用される、</p>
+<ul>
+<li>データベース接続処理</li>
+<li>XHTMLヘッダ部</li>
+<li>メニュー部</li>
+<li>フッタ部</li>
+</ul>
+<p>はここに記述されています。</p>
+<p>各子ディレクトリ(例：admin, analyze, files, forum　など)にある「<code class="filename">/include</code>」ファイルは、それ以下のディレクトリでしか使われないファイルを納めています。「<code class="filename">/images</code>」も同様に、それ以下のディレクトリでしか使われない画像が納められています。</p>
+<h3>例</h3>
+<ul>
+ <li>「<code class="filename">/include/fnc_base.inc.php</code>」 -- 全てのページで使用される関数
+  <ul>
+   <li>「<code class="filename">/admin<span class="important">/include/</span></code>」 -- adminモードのみで使用される</li>
+   <li>「<code class="filename">/analyze<span class="important">/include/</span></code>」-- analyzeでのみ使用される</li>
+   <li>「<code class="filename">/files<span class="important">/include/</span></code>」-- filesでのみ使用される</li>
+   <li>「<code class="filename">/forum<span class="red">/include/</span></code>」-- forumでのみ使用される</li>
+  </ul>
+ </li>
+ <li>「<code class="filename">/images/</code>」 -- 全てのページで使用される画像
+  <ul>
+   <li>「<code class="filename">/admin<span class="important">/images/</span></code>」 -- adminモードのみで使用される</li>
+   <li>「<code class="filename">/analyze<span class="important">/images/</span></code>」-- analyzeでのみ使用される</li>
+   <li>「<code class="filename">/forum<span class="important">/images/</span></code>」-- forumでのみ使用される</li>
+  </ul>
+ </li>
+</ul>
+</div>
+<!-- End .section h3 -->
+
+<!-- Begin .section h3 -->
+<div class="section" id="about-plugin">
+<h2>プラグインモジュールについて</h2>
+<div class="section">
+<h3>配置ディレクトリ</h3>
+<p>プラグインは以下の場所にインストールされるものとします。</p>
+<p>「<code class="filename">/include/user_include/plugins/</code>」</p>
+<h4>ファイル名のスタイル</h4>
+<p>プラグイン名は必ず以下の規則性を持たせるものとします。</p>
+<ol>
+<li>接頭辞(Prefix)は「<code class="filename"><span class="important">plg_</span></code>」とします。</li>
+<li>拡張子(Extention)は「<code class="filename"><span class="important">.inc.php</span></code>」とします。</li>
+<li>ファイル名は常に小文字で、単語の区切りにはアンダースコアを用いて下さい。</li>
+</ol>
+<p>特に 1. と 2. は重要で、この規則に従わない名前を用いたファイルはプラグインとして認識されません。</p>
+<p class="example"><code class="filename"><span class="important">plg_</span>foo_bar<span class="important">.inc.php</span></code></p>
+<h4>プラグインコードのスタイル</h4>
+<p>プラグインコードとは、プラグインが返す変数で、{}で括ってテンプレートに張りつけるコードを意味します。</p>
+<ol>
+<li>変数名は「<code><var>$plugin</var>[<var>'CREATER_CODE'</var>][<var>'foo_bar'</var>]</code>」とします。
+<ul>
+<li>「<code><var>$plugin</var></code>」はプラグインのグループ変数です。</li>
+<li><code>[<var>'CREATER_CODE'</var>]</code>は常に大文字とアンダースコアで表し、略字可能です。</li>
+<li>プラグイン名変数<code>[<var>'foo_bar'</var>]</code>は常に小文字とアンダースコアで表記し、どのような機能を提供するプラグインか一目で分かり易いようにするためなるべく略字は避けて下さい。</li>
+</ul>
+</li>
+<li>P_BLOG Project純正のクリエーターコードは「['PBPROJ']」です。これと重複しないクリエーターコードを使用してください。</li>
+</ol>
+<p class="example">
+<code>{<var>$plugin</var>[<var class="important">'PBPROJ'</var>][<var class="important">'calendar'</var>]}</code>
+</p>
+<h3>プラグインの仕様</h3>
+<ol>
+<li>コードは必ず<code>class</code>を使ってパッケージ化してください。</li>
+<li>コーディングスタイルは「<a href="http://www.go-pear.com/manual/ja/standards.php" title="PEAR :: Manual :: 標準コーディング規約">PEAR :: Manual :: 標準コーディング規約</a>」に準拠してください。</li>
+</ol>
+</div>
+</div>
+<!-- End .section h2 -->

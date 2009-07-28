@@ -1,0 +1,82 @@
+<ul class="flip-menu">
+<li><a href="./index.php" accesskey="m">P_BLOG マニュアル</a></li>
+<li><a href="./index.php?id=ja_00" accesskey="i">索引</a></li>
+<li><span class="cur-tab">XHTMLのカスタマイズ</span></li>
+</ul>
+<!-- Begin .section h2 -->
+<div class="section" id="toc">
+<h2 id="manual-title">XHTMLのカスタマイズ</h2>
+<ul>
+<li><a href="./index.php?id=ja_04#editing">ブラウザから出来る編集</a></li>
+<li><a href="./index.php?id=ja_04#customizing-xhtml-in-functions">関数内のXHTMLのカスタマイズ</a></li>
+<li><a href="./index.php?id=ja_04#notice-when-customize">PHP内のXHTMLカスタマイズ時の注意点</a></li>
+<li><a href="./index.php?id=ja_04#xhtml-structure-of-p_blog">P_BLOGのXHTML構造</a></li>
+</ul>
+</div>
+<!-- Begin .section h2 -->
+<div class="section" id="editing">
+<h2>ブラウザから出来る編集</h2>
+<p>管理モードの「カスタムファイル編集」を使って、以下のXHTML部分をカスタマイズ出来ます。　</p>
+<dl>
+<dt>(1)　コンテンツトップ</dt>
+<dd>トップページのコンテンツ部の上部にコンテンツを挿入出来ます。</dd>
+<dt>(2)　メニュー</dt>
+<dd>コンテンツメニューを編集出来ます。</dd>
+<dt>(3)　メニューミドル</dt>
+<dd>コンテンツメニューの下（メニューボックスの真ん中あたり）にメニューなどを追加出来ます。</dd>
+<dt>(4)　CSS &amp; RSS</dt>
+<dd>CSSスイッチにスタイルを登録したり、「RSS」表記をカスタマイズ出来ます。</dd>
+<dt>(5)　メニューボトム</dt>
+<dd>メニューボックスの一番下にメニューなどを追加出来ます。</dd>
+<dt>(6)　ユーザー定義フッター</dt>
+<dd>環境設定画面で「ユーザーカスタムフッタ」を選んだ際、こちらのメニューで表示する内容を編集出来ます。</dd>
+<dt>(7)　基本XHTML</dt>
+<dd>P_BLOGの全てのページで使われる基本XHTMLです。「<code>{<var>$変数</var>}</code>」で記述されている部分はPHPの処理結果が表示されるパーツです。これを移動して配置を変更する事も可能です。</dd>
+</dl>
+
+<div class="section">
+<h3>Q1 : ファイル本体はどこにありますか？</h3>
+<p>A1 : 「<code class="filename">include/user_include</code>」内にあります。</p>
+</div>
+<div class="section">
+<h3>Q2 : デフォルトに戻したいのですが。</h3>
+<p>A2 : 各ファイルのデフォルトファイルは「<code class="filename">/include/usr_include/_default_backup</code>」内にあります。戻したい場合は、そのファイルをコピーし、拡張子を「<code class="filename">.default</code>」から「<code class="filename">.php</code>」に変更して使って下さい。また、編集画面のブラウザを開いたままディレクトリから対象ファイルを削除し、「ファイルを読み込む」ボタンを押すと自動的にデフォルトファイルが作成されますのでそれで元に戻す、という方法もあります。</p>
+</div>
+</div>
+<!-- End .section h2 -->
+
+<!-- Begin .section h2 -->
+<div class="section" id="customizing-xhtml-in-functions">
+<h2>関数内のXHTMLのカスタマイズ</h2>
+<p>P_BLOGでは、各ページ内でのPHP処理コードとXHTMLタグの混在を極力減らし、出力されるタグは極力関数化し、「<code class="filename">/include/<span class="important">fnc_</span></code>」で始まるファイルにまとめるようにしていますので、必要な場合はこれらのファイルを参照して下さい。</p>
+<p>出力タグのクラス付けやマークアップは極力汎用性を持たせるように心掛けていますが、使用環境、あるいはデザインの変更等によってタグのクラスや構造をカスタマイズしたい、という場合もあると思います。その場合は、「<code class="filename">fnc_*.inc.php</code>」の各関数に含まれるXHTMLコードをカスタマイズして下さい。全てのページに使われる「ヘッダ」「コンテンツ」「メニュー」「フッタ」のXHTMLを出力する基本関数は「<code class="filename">fnc_base.inc.php</code>」にあります。</p>
+<p>コーディングスタイルは、視認性を高めるためにXHTML部分は極力ヒアドキュメントを使用、XHTMLコード部分を示すIDは「<code><span class="important">EOD</span></code> 」で、PHPの変数はカーリーブラケットで括る、という以下のようなスタイルをとっています。</p>
+<div class="command">
+<pre><var>$foo</var> =&lt;&lt;&lt;<span class="important">EOD</span>
+&lt;tag&gt;XHTMLのコンテント記述部分{<var>$PHPの変数</var>}&lt;/tag&gt;
+&lt;tag&gt;XHTMLのコンテント記述部分{<var>$PHPの変数</var>}&lt;/tag&gt;
+&lt;tag&gt;XHTMLのコンテント記述部分{<var>$PHPの変数</var>}&lt;/tag&gt;
+<span class="important">EOD;</span>
+</pre>
+</div>
+<p>入り込んだ条件分岐や定数を使った処理の部分では必要に応じて他のスタイルを使っているところもあります。</p>
+</div>
+
+<!-- Begin .section h2 -->
+<div class="section" id="notice-when-customize">
+<h2>PHP内のXHTMLカスタマイズ時の注意点</h2>
+<p>PHPで処理されるXHTML部のカスタマイズをする際に起こる可能性が高いエラーとしては、</p>
+<ul>
+<li>うっかり必要なPHPコード部分を消去してしまう</li>
+<li>ダブルクォート内で展開される処理に必要な、クォートの前のバックスラッシュが入っていない</li>
+</ul>
+<p>が挙げられると思います。それを防ぐためにも、直接オリジナルを改変するのではなくその関数部分をコピーしたものを改変し、オリジナルはコメントアウトして残しておく等、いつでもすぐに元に戻せて変更の適用具合を参照出来る選択肢を残しておいて下さい。</p>
+</div>
+
+<!-- Begin .section h2 -->
+<div class="section" id="xhtml-structure-of-p_blog">
+<h2 class="page-break-before">P_BLOGのXHTML構造</h2>
+<p>基本的なXHTML構造は以下のようになっています。カラーで示してある部分はボックス要素となっています。</p>
+<p><img src="./contents/resources/xhtml_structure.png" width="458" height="631" alt="XHTML Structure" /></p>
+<p class="ref"><a href="./contents/xhtml_class_chart.html">P_BLOG XHTML構造CSSクラス早見表</a>もご参照ください。</p>
+</div>

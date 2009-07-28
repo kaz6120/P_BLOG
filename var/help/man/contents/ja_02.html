@@ -1,0 +1,303 @@
+<ul class="flip-menu">
+<li><a href="./index.php" accesskey="m">P_BLOG マニュアル</a></li>
+<li><a href="./index.php?id=ja_00" accesskey="i">索引</a></li>
+<li><span class="cur-tab">使用方法</span></li>
+</ul>
+<!-- Begin .section h2 -->
+<div class="section" id="toc">
+<h2 id="manual-title">使用方法</h2>
+<ul>
+<li><a href="./index.php?id=ja_02#post_comment">エントリーログをポストする</a>
+<ul>
+<li><a href="./index.php?id=ja_02#comment">記事の書き方</a></li>
+<li><a href="./index.php?id=ja_02#file-upload">添付画像をアップロード</a></li>
+<li><a href="./index.php?id=ja_02#podcasting">ポッドキャストの配信</a></li>
+</ul>
+</li>
+<li><a href="./index.php?id=ja_02#upload_files">ダウンローダーにファイルをアップロード</a></li>
+<li><a href="./index.php?id=ja_02#access_analyze">アクセス解析をチェックする</a></li>
+</ul>
+</div>
+  
+<!-- Begin .section h2 -->
+<div class="section" id="post_comment">
+<h2>エントリーログをポストする</h2>
+<p>管理者ページにアクセスし、アカウントマネージャーで作成した書き込みユーザー名とパスワードでログインします。ログインが成功したら、準備OKです。投稿ページでは、3つのテキスト入力欄が表示されます。これらの入力欄に記述したものは全てMySQLデータベースに格納され、キーワード検索の対象にすることが出来ます。</p>
+
+<!-- Begin .section h3 -->
+<div class="section">
+<h3>タイトル欄</h3>
+<p>ここで書いたものがログのタイトル部分になります。 </p>
+</div>
+
+<!-- Begin .section h3 -->
+<div class="section">
+<h3 id="uri">URI(URL) 欄</h3>
+<p>ここで書いたリンクが上のタイトル欄を内包するリンクタグになります。ブックマーク的にリンクを張りたい場合に使います。タイトルをリンクさせたくない場合は、そのまま「http://」にしておいて下さい。</p>
+</div>
+
+<!-- Begin .section h3 -->
+<div class="section">
+<h3 id="category">カテゴリー欄</h3>
+<p>P_BLOGはマルチカテゴライズ可能なカテゴリー機能を持っています。複数のカテゴリーに登録する場合はカンマ区切り(スペースなし)で登録します。</p>
+<p><span class="important">書き方の例：</span></p>
+<div class="example">
+PHP,MySQL,Web Develop,Web開発
+</div>
+<p>このように登録すると、同一記事を、「PHP」「MySQL」「Web Develop」「Web開発」のそれぞれのカテゴリーから呼び出せるようになります。</p>
+</div>
+
+<!-- Begin .section h3 -->
+<div class="section" id="comment">
+<h3>コメント欄</h3>
+<!-- Begin .section h4 -->
+<div class="section">
+<h4 class="important">段落の書き方の例:</h4>
+<p>コメントは基本的に<code class="tag">&lt;p&gt;&lt;/p&gt;</code>タグで括って書いていきます。<code class="tag">&lt;p&gt;</code>は「Paragraph(段落)」の頭文字です。これを使わなくてもポストは可能ですが、論理的にも見た目にも奇麗なXHTMLを出力するために、コメントは<code class="tag">&lt;p&gt;&lt;/p&gt;</code>タグ内に書くのが推奨です。段落の空白を作るために連続した<code class="tag">&lt;br /&gt;</code>タグを使用するのは避けましょう。</p>
+<p>模範的な書き方の例：</p>
+<div class="example">
+<code class="tag">&lt;p&gt;</code>コメントをこのように書きます。<code class="tag">&lt;/p&gt;</code><br />
+<code class="tag">&lt;p&gt;</code>パラグラフ(段落)が変わったらこのように追加の&lt;p&gt;タグ内に書いていきます。<code class="tag">&lt;/p&gt;</code><br />
+</div>
+<p>推奨されない書き方の例：</p>
+<div class="bad example">
+コメントをこのように書きます。<code class="tag">&lt;br /&gt;</code><br />
+<code class="tag">&lt;br /&gt;</code><br />
+<code class="tag">&lt;br /&gt;</code><br />
+パラグラフ風な空行を実現するためにこのように<span class="blie">&lt;br /&gt;</span>を連打するのはあまりお勧めしません。
+</div>
+<p><code class="tag">&lt;p&gt;</code>を使うと、CSSオフでも奇麗で読みやすいXHTMLでレンダリングされます。</p>
+<h5>パラグラフと改行の自動マークアップ機能</h5>
+<p>基本的にP_BLOGはXHTMLをハンドコーディング(手打ち)する人、HTMLの基本が分かる人、全く分からないが少なくとも多少のタグなら覚える気がある人をユーザーとして想定して開発していますが、パラグラフや改行タグを使用しない場合のみ自動的にマークアップして補完する機能が実装されています。</p>
+<p>自動マークアップ機能では、改行が二回続くとパラグラフと見なし<code class="tag">&lt;p&gt;</code>タグを補完し、一回だけの場合は強制改行と見なし<code class="tag">&lt;br /&gt;</code>タグを補完します。</p>
+<p class="note">これらのタグを直接入力して書く場合には自動マークアップ機能は機能しないようになっています。</p>
+<p class="note">P_BLOGの自動マークアップ機能では独自拡張／独自言語／独自入力パターンでの入力補完機能はありません。サポートされている入力方法は(X)HTMLタグのみです。</p>
+
+<h5>Markdown記述自動変換機能</h5>
+<p><span class="important">バージョン1.0.1より<a href="http://daringfireball.net/projects/markdown/" title="Daring Fireball: Markdown" class="ex-ref">Markdown</a>プラグインを標準搭載しました。</span></p>
+
+<ul class="ref">
+<li><a href="http://daringfireball.net/projects/markdown/basics" title="Daring Fireball: Markdown Basics" class="ex-ref">Daring Fireball: Markdown Basics</a></li>
+<li><a href="http://www.michelf.com/projects/php-markdown/" title="PHP Markdown" class="ex-ref">PHP Markdown</a></li>
+</ul>
+
+<p>このMarkdown機能は、デフォルトで有効になっています。マークダウン書式で記述すると自動的にマークアップされます。</p>
+<p>Markdown機能を外したい場合は、プラグインフォルダ(/include/user_include/plugins/)からマークダウンプラグインを削除して下さい。</p>
+<p>Markdown機能をオフにすると、P_BLOGの自動マークアップ機能が作動するようになっています。</p>
+
+
+<h5>タグボタンのカスタマイズ</h5>
+<p>タグボタンは「カスタムファイル編集」でカスタマイズ可能ですので、好きなタグ用のボタンを追加したり削除したり、好みのアクセスキーを設定したりしてください。タグの追加は、&lt;input&gt;タグを追加し、value値にタグ名を記述し、onclick属性のJavaScriptの<code>wrap()</code>関数を以下のようにカスタマイズします。 クラス、属性はそれぞれ一つずつ追加出来ます。</p>
+<div class="example">
+<code>wrap('<span class="important">タグ名</span>', '<span class="important">クラス名</span>', '<span class="important">追加したい属性</span>');</code>
+</div>
+<p>例えば、「<code class="tag">&lt;a&gt;</code>要素で<code>ref</code>というクラスをつけて<code>href</code>属性を持ったタグを出力するボタン」を追加したい場合、以下のようにします。</p>
+<div class="example">
+<code>&lt;input onclick="<span class="important">wrap('a', 'ref', 'href');</span>" type="button" value="<span class="important">a</span>" /&gt;</code>
+</div>
+<h5>参照URI</h5>
+<ul class="ref">
+<li><a class="ex-ref" href="http://www.mozilla.org/contribute/writing/markup#structure" title="mozilla.org Markup Reference">mozilla.org Markup Reference : General Structure</a></li>
+<li><a class="ex-ref" href="http://www.kanzaki.com/docs/html/htminfo11.html#S4" title="強調,引用,グループ化,画像などの要素 -- ごく簡単なHTMLの説明">ごく簡単なHTMLの説明　: 段落と改行</a></li>
+</ul>
+</div>
+
+<!-- Begin .section h4 -->
+<div class="section" id="text-decoration">
+<h4 class="important">テキストの装飾の例：</h4>
+<p>フォントを大きくしたり強調したい場合には、</p>
+<ol>
+<li><code class="tag">&lt;em&gt;</code></li>
+<li><code class="tag">&lt;strong&gt;</code></li>
+<li><code class="tag">&lt;strong class="stronger"&gt;</code></li>
+<li><code class="tag">&lt;strong class="very-strong"&gt;</code></li>
+</ol>
+<p>などの4段階のクラスがデフォルトで用意されています。</p>
+<div class="example">
+<code class="tag">&lt;em&gt;</code>強調<code class="tag">&lt;/em&gt;</code><br />
+<code class="tag">&lt;strong&gt;</code>普通の強調<code class="tag">&lt;/strong&gt;</code><br />
+<code class="tag">&lt;strong class="stronger"&gt;</code>ちょっと強調<code class="tag">&lt;/strong&gt;</code><br />
+<code class="tag">&lt;strong class="very-strong"&gt;</code>かなり強調<code class="tag">&lt;/strong&gt;</code>
+</div>
+<p>実際の表示はこのようになります。↓</p>
+<div class="example">
+<em>強調</em>
+<strong>普通の強調</strong>
+<strong class="stronger">ちょっと強調</strong>
+<strong class="very-strong">かなり強調</strong>
+</div>
+<h5>参照URI</h5>
+<ul class="ref">
+<li><a class="ex-ref" href="http://www.mozilla.org/contribute/writing/markup#emphasis" title="mozilla.org Markup Reference">mozilla.org Markup Reference : Emphasis</a></li>
+<li><a class="ex-ref" href="http://www.kanzaki.com/docs/html/htminfo14.html#S12" title="強調,引用,グループ化,画像などの要素 -- ごく簡単なHTMLの説明">ごく簡単なHTMLの説明　: 語句の強調とハイライト</a></li>
+</ul>
+</div><!-- End .section h4 -->
+
+<!-- Begin .section h4 -->
+<div class="section" id="hyper-link">
+<h4 class="important">ハイパーリンクの書き方の例：</h4>
+<p>(Level-1) リンクを張る場合は、以下のように　<code class="tag">&lt;a&gt;</code>　要素を使ってマークアップします。 <code>href</code> 属性でリソースのURIを示します。</p>
+<div class="example">
+<code class="tag">&lt;a href="<span class="important">http://pbx.homeunix.org/p_blog/</span>"&gt;</code>P_BLOG Project<code class="tag">&lt;/a&gt;</code>
+</div>
+<p>(Level-2) 必要に応じて　<code>title</code>　属性を使ってサイトの簡単な説明をポップアップさせる事も出来ます。</p>
+<div class="example">
+<code class="tag">&lt;a href="http://pbx.homeunix.org/p_blog/" <br />
+title="<span class="important">P_BLOG Project Official Site</span>"&gt;</code>P_BLOG Project<code class="tag">&lt;/a&gt;</code>
+</div>
+<p>(Level-3) 外部サイトへの参照リンクの場合は　<code>ex-ref</code>　クラスを使ってスタイルシートでアイコンをつけ、外部リンクである事を明確に表現する事も出来ます。</p>
+<div class="example">
+<code class="tag">&lt;a href="http://pbx.homeunix.org/p_blog/" <br />
+title="P_BLOG Project Official Site"<br />
+class="<span class="important">ex-ref</span>"&gt;</code>P_BLOG Project<code class="tag">&lt;/a&gt;</code>
+</div>
+<p>以上を全て適用すると、以下のようなハイパーリンクになります。↓</p>
+<p><a href="http://pbx.homeunix.org/p_blog/" title="P_BLOG Project Official Site" class="ex-ref">P_BLOG Project</a></p>
+<h5>参照URI</h5>
+<ul class="ref">
+<li><a class="ex-ref" href="http://www.mozilla.org/contribute/writing/markup#navigation" title="mozilla.org Markup Reference">mozilla.org Markup Reference : Navigation</a></li>
+<li><a class="ex-ref" href="http://www.kanzaki.com/docs/html/htminfo12.html" title="ハイパーリンク -- ごく簡単なHTMLの説明">ハイパーリンク -- ごく簡単なHTMLの説明</a></li>
+</ul>
+</div>
+
+<!-- Begin .section h4 -->
+<div class="section" id="quoting">
+<h4 class="important">引用文の書き方の例：</h4>
+<p>他のサイトの記事を引用する場合は<code class="tag">&lt;blockquote&gt;</code>タグを使います。<code class="tag">&lt;blockquote&gt;</code>タグ内の<code class="tag">cite</code>属性で元記事のURIを下のように指定します。</p>
+<div class="example">
+<code class="tag">&lt;blockquote cite="<span class="important">http://pbx.homeunix.org/p_blog/</span>"&gt;</code><br />
+<code class="tag">&lt;p&gt;</code>P_BLOG Projectからの引用文<code class="tag">&lt;/p&gt;</code><br />
+<code class="tag">&lt;/blockquote&gt;</code>
+</div>
+<p>すると、以下のようになります。↓</p>
+<blockquote cite="http://pbx.homeunix.org/p_blog/">
+<p>P_BLOG Projectからの引用文</p>
+</blockquote>
+<p><code>cite</code> 属性で示したURIは、引用元へのリンクが自動的に生成されるようになっています。</p>
+<h5>参照URI</h5>
+<ul class="ref">
+<li><a class="ex-ref" href="http://www.mozilla.org/contribute/writing/markup#quotations" title="mozilla.org Markup Reference">mozilla.org Markup Reference : Quotations</a></li>
+<li><a class="ex-ref" href="http://www.kanzaki.com/docs/html/htminfo14.html#S13.1" title="強調,引用,グループ化,画像などの要素 -- ごく簡単なHTMLの説明">ごく簡単なHTMLの説明　: 引用の方法</a></li>
+</ul>
+</div>
+
+<!-- Begin .section h4 -->
+<div class="section" id="compupters">
+<h4 class="important">コンピューターの用例の書き方の例：</h4>
+<p>キーボードショートカットなど、コンピューターキー入力文字列を表現したい場合は、<code class="tag">&lt;kbd&gt;</code>タグを使います。特定のキーを強調したい場合は、<code class="tag">&lt;kbd&gt;</code>タグ内の<code class="tag">class</code>属性で「important」と指定します。</p>
+<div class="example">
+<code class="tag">&lt;kbd&gt;</code>shift<code class="tag">&lt;/kbd&gt;</code><br />
+<code class="tag">&lt;kbd&gt;</code>option<code class="tag">&lt;/kbd&gt;</code><br />
+<code class="tag">&lt;kbd&gt;</code>command<code class="tag">&lt;/kbd&gt;</code><br />
++<br />
+<code class="tag">&lt;kbd class="<span class="important">important</span>"&gt;</code>S<code class="tag">&lt;/kbd&gt;</code>
+</div>
+<p>すると、以下のようになります。↓</p>
+<p><kbd>shift</kbd><kbd>option</kbd><kbd>command</kbd>+<kbd class="important">S</kbd></p>
+<h5>参照URI</h5>
+<ul class="ref">
+<li><a class="ex-ref" href="http://www.mozilla.org/contribute/writing/markup#computers" title="mozilla.org Markup Reference">mozilla.org Markup Reference : Computers</a></li>
+</ul>
+</div>
+
+<!-- Begin .section h4 -->
+<div class="section" id="writing-print-css">
+<h5 class="important">プリント対応CSSクラスの書き方の例：</h5>
+<p>P_BLOGはプリンターでの印刷に対応したCSSをデフォルトで備えています。ブラウザから印刷を行うと、通常のスタイルシートではなく印刷用のスタイルシートが適用されます。</p>
+<p class="ref"><a href="../../../styles/_media/print.css">このP_BLOGシステムのPrint用CSS</a></p>
+<p>ブラウザでのページ閲覧とプリントしてのページ閲覧での一番の違いはページ分割の問題です。ブラウザで表示されたページをそのまま印刷すると意図しないところでページが分割されてしまう場合が殆どです。それを避け、作者(あなた)の意図したところでページ分割させるためのクラスをデフォルトで二つ用意してありますので活用ください。</p>
+<p>ページをある特定の場所の前でカットしたい場合は、「<code class="important">.page-break-before</code>」というクラスを指定します。例えばある見出し<code class="tag">&lt;h3&gt;</code>foo<code class="tag">&lt;/h3&gt;</code>の前でページを切りたい場合、以下のように書きます。</p>
+<div class="example">
+<code class="tag">&lt;h3 class="<span class="important">page-break-before</span>"&gt;</code>foo<code class="tag">&lt;/h3&gt;</code>
+</div>
+<p>すると、このクラスで指定された場所の前でページが分割され、このクラス以降のコンテンツは次のページとして印刷されます。</p>
+<p>ページをある特定の場所の後ろでカットしたい場合は、「<code class="important">.page-break-after</code>」というクラスを指定します。例えばある見出し<code class="tag">&lt;h3&gt;</code>foo<code class="tag">&lt;/h3&gt;</code>の後ろでページを切りたい場合、以下のように書きます。</p>
+<div class="example">
+<code class="tag">&lt;h3 class="<span class="important">page-break-after</span>"&gt;</code>foo<code class="tag">&lt;/h3&gt;</code>
+</div>
+<p>すると、このクラスで指定された場所の後ろでページが分割され、このクラスから後のコンテンツは次のページとして印刷されます。</p>
+</div>
+
+<!-- Begin .section h4 -->
+<div class="section" id="file-upload">
+<h4 class="important">添付画像をアップロード</h4>
+<p>ファイル選択フォームでは、ログと一緒に画像などのバイナリファイルをアップロード出来ます。アップロードされたファイルは全て 「<code class="filename">resources</code>」 フォルダに格納されます。(このフォームでアップロードするファイルはMySQLには格納されません) <br />
+ファイルへのパスを書く場合のためにアップロードディレクトリのパスを覚えておいて下さい。</p>
+<p><span class="important">画像パスの書き方の例：</span></p>
+<div class="example">
+<code class="filename">
+&lt;img src="./<span class="important">resources</span>/my_image.png" width="100" height="20" alt="Image" /&gt;
+</code>
+</div>
+<p>アップロード可能な画像数は管理モードの「環境設定」でいくつまでも自由に増減出来ます。(デフォルトは3です)</p>
+<h5>参照URI</h5>
+<ul class="ref">
+<li><a class="ex-ref" href="http://www.kanzaki.com/docs/html/htminfo14.html#S14" title="ハイパーリンク -- ごく簡単なHTMLの説明">ハイパーリンク -- ごく簡単なHTMLの説明 : 画像の表示</a></li>
+</ul>
+</div>
+
+<!-- Begin .section h4 -->
+<div class="section" id="podcasting">
+<h4 class="important">ポッドキャストの配信</h4>
+<p>ポッドキャストするMP3、AAC、MOVデータを送るには、添付画像と同じファイル選択フォームを使用します。ファイルを選択すると、タグボタンが「img」から「Podcast」に変わりますので、そのボタンをクリックするとポッドキャスト用のタグがコメント欄に書き出されます。</p>
+<p><span class="important">ポッドキャストコードの例：</span></p>
+<div class="example">
+<code class="filename">
+&lt;!-- PODCAST=foo.mp3 --&gt;
+</code>
+</div>
+<p>これはresourcesディレクトリに置かれたポッドキャスト用の音声／ムービーファイル「<span class="important">resources</span>/foo.mp3」を意味します。ポッドキャスト対応のファイルは「.mp3」「.m4a」「.mov」です。ポッドキャストはRSS2.0によって配信されます。</p>
+</div>
+
+<!-- Begin .section h4 -->
+<div class="section" id="read-more">
+<h4 class="important">トップページに「もっと読む...」リンクを表示する</h4>
+<p>本文に「<span class="important">&lt;!-- more --&gt;</span>」というコメントを入れることによって、トップページには概要、文の出だし、あるいは見出しのみを表示し、残りの部分は「もっと読む....」リンクを使って<abbr title="Permanent Link : 恒久リンクページ">Permallink</abbr>ページで読ませるように出来ます。</p>
+<p><span class="important">「もっと読む...」用コメントの書き方の例：</span></p>
+<div class="example">
+<code class="tag">&lt;p&gt;</code>ここはトップページに表示される段落です。<code class="tag">&lt;/p&gt;</code><br />
+<span class="important">&lt;!-- more --&gt;</span><br />
+<code class="tag">&lt;p&gt;</code>この部分は「もっと読む...」になり、トップページには表示されない段落となります。<code class="tag">&lt;/p&gt;</code>
+</div>
+<p>すると、このように表示されます。</p>
+<div class="example">
+<p>ここはトップページに表示される段落です。</p>
+<p class="read-more"><a href="#read-more">もっと読む...</a></p>
+</div>
+<p class="note">上のサンプルリンクにはこのサイトの「もっと読む...」用のCSSが適用されています。</p>
+</div><!-- End .section h4 -->
+
+<!-- Begin .section h4 -->
+<div class="section" id="refer-uri">
+<h4 class="important">参照URI</h4>
+<p>P_BLOGのデフォルトでついているテキスト装飾まわりのCSSクラスは「<a href="../../../styles/_import/text_decorations.css"><code class="filename">text_decorations.css</code></a>」に定義されていますので参考にして下さい。また、マークアップやクラスの一部はMozilla.orgのマークアップリファレンスに準拠していますのでこちらも参考にして下さい。</p>
+<ul>
+<li><a class="ex-ref" href="http://www.mozilla.org/contribute/writing/markup" title="mozilla.org Markup Reference">mozilla.org Markup Reference</a></li>
+<li><a class="ex-ref" href="http://www.mozilla.org/css/base/content.css" title="http://www.mozilla.org/css/base/content.css">http://www.mozilla.org/css/base/content.css</a></li>
+</ul>
+<p>日々の更新でよく使われる要素についての解説は「<a class="ex-ref" href="http://www.kanzaki.com/" title="The Web KANZAKI -- Japan, music and computer">The Web KANZAKI</a>」の「<a class="ex-ref" href="http://www.kanzaki.com/docs/htminfo.html" title="ごく簡単なHTMLの説明">ごく簡単なHTMLの説明</a>」という名ページの中に最適なソースがありますので、ご参照下さい。</p>
+<ul>
+<li><a class="ex-ref" href="http://www.kanzaki.com/docs/html/htminfo14.html" title="強調,引用,グループ化,画像などの要素 -- ごく簡単なHTMLの説明">強調,引用,グループ化,画像などの要素 -- ごく簡単なHTMLの説明</a></li>
+<li><a class="ex-ref" href="http://www.kanzaki.com/docs/html/lesson1.html#S120" title="ごく簡単なHTMLの説明 -- 30分間(X)HTML入門">ごく簡単なHTMLの説明 -- 30分間(X)HTML入門</a></li>
+</ul>
+</div><!-- End .section h4 -->
+</div><!-- End .section h3 -->
+</div><!-- End .section h2 -->
+
+<!-- Begin .section h2 -->
+<div class="section" id="upload_files">
+<h2>ダウンローダーにファイルをアップロード</h2>
+<p>「FILES」はファイルダウンローダーです。この機能を使って、イメージファイル、テキスト、html、PDF、フォトショップのPSDフォーマット、 .movなどのムービーファイル、100MB以上の比較的大きなファイル(<span class="note">PHP側での設定が必要</span>)、などなど、とにかく(MySQLが扱える)バイナリファイルならなんでも、MySQLに放り込むことが出来ます。アップロードしたファイルは自動的にリンクが張られますので、全てクリックでダウンロード可能になります。ファイルのダウンロード数は管理画面のダウンロードカウンターでもチェック可能です。</p>
+<p>ファイルダウンローダーとしての使い道以外に、バイナリデータにリンクを張ってメインのBlogのページから参照することが出来ます。ファイルは全てidで管理していますので、リンクタグでデータを呼び出すには <code class="filename">bin.php?id=FILE ID</code>というコードを使用します。例えば、ファイルのidが<code class="filename">123</code>で<code class="filename">foo.pdf</code>というファイルへのアンカータグを書きたい場合はこのようになります:</p>
+<div class="example">
+<code class="tag">&lt;a href="<span class="important">./bin.php?id=123</span>"&gt;</code>foo.pdf<code class="tag">&lt;a&gt;</code>
+</div>
+<p>クリックした結果はヘッダがブラウザに送られますので、ブラウザが扱えるメディアタイプ、例えHTMLファイルなどのようなテキストファイルや画像などはそのままブラウザに出力されます。ブラウザが表示出来ないメディアタイプ(例えば圧縮ファイルなど)は自動的にダウンロードファイルとなります。</p>
+</div>
+
+<!-- Begin .section h2 -->
+<div class="section" id="access_analyze">
+<h2>アクセス解析で来訪者をチェック</h2>
+<p>アクセス解析機能を使って、簡単なアクセス解析が出来ます。アクセス解析機能の使用には別途設定をする必要はありません。通常のインストールとセットアップを済ませてあれば、何もすることなく使える状態になっているはずです。　「サイト管理」トップの「アクセス解析」ボタンをクリックすると表示されます。</p>
+</div>
+

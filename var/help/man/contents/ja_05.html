@@ -1,0 +1,114 @@
+<ul class="flip-menu">
+<li><a href="./index.php" accesskey="m">P_BLOG マニュアル</a></li>
+<li><a href="./index.php?id=ja_00" accesskey="i">索引</a></li>
+<li><span class="cur-tab">スタイルのカスタマイズ</span></li>
+</ul>
+<!-- Begin .section h2 -->
+<div class="section" id="toc">
+<h2>スタイルのカスタマイズ</h2>
+<ul>
+<li><a href="./index.php?id=ja_05#customizing-sample-css">サンプルCSSをカスタマイズ</a></li>
+<li><a href="./index.php?id=ja_05#creating-style-first-step">オリジナルCSS : ファーストステップ</a></li>
+<li><a href="./index.php?id=ja_05#creating-style-second-step">オリジナルCSS : セカンドステップ</a></li>
+<li><a href="./index.php?id=ja_05#agent-spacified-style">ブラウザ別CSSで微調整</a></li>
+<li><a href="./index.php?id=ja_05#about-cascading">継承の構成</a></li>
+<li><a href="./index.php?id=ja_05#example-1">使用例： ブラウザごとに違うフォントサイズを適用させたい</a></li>
+<li><a href="./index.php?id=ja_05#css-coding-standards">P_BLOG CSS 標準コーディング規約</a></li>
+</ul>
+</div>
+
+<!-- Begin .section h2 -->
+<div class="section" id="customizing-sample-css">
+<h2>サンプルCSSをカスタマイズ</h2>
+<p>P_BLOGは、デザインと構造を分離し、レイアウトやフォントなどの見た目のスタイルは
+すべてCSSで制御する、という方向性で制作しています。
+サンプルとしていくつかCSSを付属していますが、フォルダごと差し替えたり加えたりして簡単に
+見た目をガラっと変えることが出来ますので、是非オリジナルCSSを作る事をお薦めします。</p>
+</div>
+
+<!-- Begin .section h2 -->
+<div class="section" id="creating-style-first-step">
+<h2>オリジナルCSS : ファーストステップ</h2>
+<p>手始めに「styles」フォルダの中に入っている番号のついたフォルダをフォルダごと複製して
+カラーコードや幅のピクセル値などを変えてみて、カスタマイズしてみて下さい。
+</p>
+<p>CSS切り替えSwitcherセレクター用のタグコードは「環境設定」「カスタムファイル編集」のCustom Partsにあります。適応するCSSやその名称をカスタマイズする場合は、以下の配列コードを探して書き換えます。</p>
+<div class="command">
+<pre><var>$styles</var> = array(
+    "Silk"        =&gt; "silk",
+    "Alminum"     =&gt; "alminum",
+    "Rich Green"  =&gt; "rich_green");
+</pre>
+</div>
+<p>パターンは「<span class="blue">"名前" =&gt; "CSSフォルダ名"</span>」となっていますので、カスタマイズする場合はそれを考慮して書き換えて下さい。</p>
+<div class="section important">
+<h3 class="important">注意</h3>
+<p>各スタイルはカンマで区切りますが、一番最後のスタイルのあとには入れないように注意して下さい。</p>
+</div>
+</div>
+
+<!-- Begin .section h2 -->
+<div class="section" id="creating-style-second-step">
+<h2 class="page-break-before">オリジナルCSS : セカンドステップ</h2>
+<p>P_BLOGのCSSクラスの構成を把握しておくとカスタマイズの時に楽になります。デフォルトの基本構造はこのようになっています。↓</p>
+<p><img src="./contents/resources/xhtml_structure.png" width="458" height="631" alt="XHTML Structure" /></p>
+<p class="ref"><a href="./contents/xhtml_class_chart.html">P_BLOG XHTML構造CSSクラス早見表</a>もご参照ください。</p>
+</div>
+
+<!-- Begin .section h2 -->
+<div class="section" id="agent-spacified-style">
+<h2>ブラウザ別CSSで微調整</h2>
+<p>P_BLOGは、ブラウザを判別して別々のCSSを読み込む機能が備わっています。この機能を利用し、ブラウザごとのスタイルの微調整をすることが出来ます。適用されるブラウザとそれぞれのCSSの名称は以下の通りです。</p>
+<dl>
+<dt><code class="filename">default.css</code></dt>
+<dd>全てのブラウザ用。必須。</dd>
+<dt><code class="filename">gecko_style.css</code></dt>
+<dd>Geckoレンダリングエンジンを搭載したブラウザ用。(Mozilla/Camino/Firefoxなど)</dd>
+<dt><code class="filename">mac_gecko_style.css</code></dt>
+<dd>Geckoレンダリングエンジンを搭載したブラウザのMac版専用。Win/Linux版と振り分けたい場合に使用。(Mozilla/Camino/Firefoxなど)</dd>
+<dt><code class="filename">khtml_style.css</code></dt>
+<dd>KHTMLレンダリングエンジンを搭載したブラウザ用。Safari 1.0〜, OmniWeb4.5〜, Konquerorなど)</dd>
+<dt><code class="filename">win_ie_style.css</code></dt>
+<dd>Windows IE用。</dd>
+<dt><code class="filename">opera_style.css</code></dt>
+<dd>Opera用。</dd>
+</dl>
+<p>基本的には<code class="filename">default.css</code>を入れておけばOKですが、ブラウザごとにデザインを微調整したい場合、それぞれ上に示した名前のCSSを作成してCSSフォルダの<code class="filename">default.css</code>と同一階層に追加しておくと、指定ブラウザのみそのCSSが適用されるようになります。それぞれの読み込み優先順位は、例えばMozillaでアクセスすると、</p>
+<ol>
+<li><code class="filename">gecko_style.css</code>を探して適用</li>
+<li>なければ、<code class="filename">default.css</code>を探して適用</li>
+<li>それもなければCSSはオフ。</li>
+</ol>
+<p>という流れになります。</p>
+</div>
+
+<!-- Begin .section h2 -->
+<div class="section" id="about-cascading">
+<h2>継承の構成</h2>
+<p>下図で示した左側のファイルが右側のファイルを<code>@import</code>する形になり、それぞれ左側が右側に対して上位となります。「<code class="filename">common.css</code>」と「<code class="filename">text_decorations.css</code>」は「<code class="filename">_import</code>」ディレクトリに納められており、全てのスタイルで共有されます。</p>
+<img src="./contents/resources/css_structure.png" width="339" height="311" alt="CSS Structure" />
+</div>
+
+<!-- Begin .section h2 -->
+<div class="section" id="example-1">
+<h2 class="important page-break-before">使用例： ブラウザごとに違うフォントサイズを適用させたい</h2>
+<p>例えば「<code class="filename">default.css</code>」を基本として、</p>
+<p>「WinIEにのみ、<code>body</code>のフォントサイズを「<code>font-size: x-small</code>」で適用させたい」</p>
+<p>という場合があると仮定します。その場合は「<code class="filename">win_ie_style.css</code>」というファイルを作成し、以下のように記述します。</p>
+<div class="example">
+<pre>@charset "utf-8";
+@import url(./default.css);
+
+body {
+    font-size: x-small;
+}</pre>
+</div>
+<p>メインCSSは<code>@import</code>で読み込んだファイルに対して上位となりますので、基本の<code class="filename">default.css</code>にフォントサイズを上書きする形になります。これにより、WinIEでアクセスした場合、<code>body</code>フォントサイズの部分は<code>font-size: x-small</code>が適用される事になります。</p>
+</div>
+
+<!-- Begin .section h2 -->
+<div class="section" id="css-coding-standards">
+<h2>P_BLOG CSS 標準コーディング規約</h2>
+<p>P_BLOGのCSSプロパティの順序は、<a href="http://www.mozilla.org">Mozilla.org</a>の基本CSSの「推奨プロパティオーダー」に準拠しています。</p>
+<p class="ref"><a href="../../../styles/_CODING_STANDARDS">_CODING_STANDARDS</a></p>
+</div>

@@ -1,0 +1,475 @@
+@charset "utf-8";
+@import url(../_import/common.css);
+@import url(../_import/text_decorations.css);
+
+/*
+  ---------------------------------------------------------------
+   P_BLOG CSS TEMPLATE "Silk"
+
+   $Id: 2005/03/23 23:32:39 Exp $
+  ---------------------------------------------------------------
+  INDEX : 
+     - BASE
+     - HEADER
+     - CONTENT
+     - MENU BOX
+     - FOOTER
+  ---------------------------------------------------------------
+*/
+
+/*
+-----------------------------------------------------------------
+    BASE
+-----------------------------------------------------------------
+*/
+html {
+    margin: 0;
+    padding: 0;
+}
+
+body    {
+    margin: 0;
+    padding: 1em 0 1em 0;
+    background: #eeeedd url(./resources/bg.png);
+    color: #333300;
+    font-family: Trebuchet MS, 
+                 "ヒラギノ丸ゴ Pro W4", "Hiragino Maru Gothic Pro", "Hiragino Kaku Gothic Pro", sans-serif;
+    font-size: 84%;
+    text-align: center;
+}
+
+#wrapper   {
+    width: 90%;
+    min-width: 640px;
+    max-width: 1024px;
+    margin: 10px auto 10px auto;
+    padding: 0;
+    background-color: #ffffff;
+    border: 1px solid #666633;
+    text-align: left;
+}
+
+
+/* Anchors */
+a:link {
+    border-bottom: 1px dotted #6666CC;
+    background-color: transparent;
+    color: #6666CC;
+    text-decoration: none;
+}
+a:visited {
+    border-bottom: 1px dotted #997767;
+    background-color: transparent;
+    color: #997767;
+    text-decoration: none;
+}
+a:hover {
+    border-bottom: 1px dotted #997767;
+    background-color: transparent;
+    color: #ff6600;
+    font-style: normal;    
+    text-decoration: none;
+}
+h1 {
+    margin: 0;
+    padding: 0;
+}
+h2 {
+    margin: 0;
+    padding: 1em 0 0.5em 0;
+    color: #666633;
+    font-size: 120%;
+    text-shadow: #dddddd 0.1em 0.2em 0.2em;
+    border-bottom: 1px dotted #666633;
+}
+h3 {
+    margin: 1em 0 0.2em 0;
+    color: #724D48;
+    font-family: "HiraKakuStd-W8", Lucida Grande, 
+                 Trebuchet MS, Verdana, "HiraMaruPro-W4", sans-serif;
+    font-size: 110%;
+    text-indent: 0.5em;
+}
+p {
+    margin: 0.5em 0em 1.5em 1em;
+    font-size: 100%;
+    line-height: 170%;
+}
+
+img {
+    border: 0;
+}
+
+/* Forms */
+input, textarea, select {
+    font-size: 100%;
+    font-family: "ヒラギノ丸ゴ Pro W4", "Hiragino Maru Gothic Pro",
+                       Trebuchet MS, sans-serif;
+}
+input[type="submit"],[type="reset"],[type="button"] {
+	padding: 3px 2px 0px 2px;
+    background: #DBDBB7 url(../_shared/button_bg.png) repeat-x;
+    border: 1px solid #999999;
+	font-size: 95%;
+    color: #000000;
+}
+
+input[type="text"],[type="password"] {
+    margin: 0px 0px 3px 0px;
+}
+
+input[type="radio"] {
+    border: 0;
+}
+
+select {
+    margin: 0px 0px 3px 0px;
+    background-color: #DBDBB7;
+    border: 1px solid #666633;
+	font-size: 95%;
+}
+
+fieldset {
+    padding: 1.5em;
+    margin: 1.5em;
+    border: 1px solid #cccccc;
+}
+
+legend {
+    padding: 3px 10px 3px 10px;
+    border: 1px solid #cccccc;
+}
+
+.noscript {
+    display: inline;
+}
+
+/* List */
+ul, ol, li, dl {
+    line-height: 180%;
+}
+
+/*
+-----------------------------------------------------------------
+    HEADER
+-----------------------------------------------------------------
+*/
+#header {
+    height: 3em;
+    margin: 0;
+    padding: 10px 5px 10px 2em;    
+    background: #666633 url(./resources/silk_bg.png) repeat-x;
+    color: #eeeedd;
+}
+#header h1 {
+    float: left;
+    padding: 0 0 5px 0;
+    font-size: 180%;
+    text-shadow: #999966 0.2em 0.2em 0.2em;
+}
+#header h1 a:link, #header h1 a:visited {
+    background-color: transparent;
+    border: 0;
+    color: #eeeedd;
+    text-decoration: none;
+}
+#header h1 a:hover {
+    background-color: transparent;
+    border: 0;
+    text-decoration: none;
+    color: #cccc99;
+}
+#subtitle {
+    float: left;
+    padding: 0.1em 0em 0em 2em;
+    font-size: 95%;
+}
+
+
+/*
+-----------------------------------------------------------------
+    CONTENT BOX
+-----------------------------------------------------------------
+*/
+#content  {
+    float: right;
+    margin: 1em 1em 2em 0.5em;
+    padding: 1em 2em 1em 0;
+    width: 67%;
+
+}
+.section {
+    margin: 0em 0em 1em 0em;
+}
+a.anchor:link, a.anchor:visited, a.anchor:hover {
+    margin-right: 5px;
+    border: 0;
+}
+#content h2 {
+    margin-bottom: 1em;
+}
+h3.article-title {
+    padding: 0px 0px 5px 1.2em;
+    background: #ffffff url(./resources/h_bg.png) 0 3px no-repeat;
+    font-size: 120%;
+    text-shadow: #dddddd 0.1em 0.2em 0.2em;
+}
+.date {
+    padding-left: 1em;
+    background-color: transparent;
+    font-size: 95%;
+    color: #999966;
+}
+
+.section p {
+    padding: 0.5em 1em 0.5em 1em;
+    font-size: 100%;
+    line-height: 180%;
+}
+
+
+/* Comment Form */
+#addform img, #addform a {
+    border: 0;
+}
+
+/* Article Footer */
+.a-footer {
+    font-size: 95%;
+    text-align: right;
+}
+/* ============= Footer Anchors ============= */
+.a-footer a {
+    font-size: 12px;
+	padding: 0px 0px 2px 14px;
+	margin              : 0em  0.5em 0em 0em;
+	background          : #ffffff url(../_shared/anchor_bg.png) 0px 0px no-repeat;
+    text-shadow         : #ffffff 0.2em 0.2em 0.2em;
+    
+    /* For Debug */
+/*    border              : 1px solid #6600CC;*/
+
+}
+.a-footer a:hover {
+	background-position : 0px -30px;
+}
+.a-footer a:active {
+	background-position : 0px -60px;
+}
+/* ---------- Status-on button ---------- */
+a.status-on {
+	background-position : 0px -90px !important;
+}
+a.status-on:hover {
+	background-position : 0px -30px !important;
+}
+a.status-on:active {
+	background-position : 0px -60px !important;
+}
+/* ============= Footer Anchors ============= */
+
+/*
+-----------------------------------------------------------------
+    MENU BOX
+-----------------------------------------------------------------
+*/
+#menu-box  {
+    float: left;
+    margin: 2em 1em 2em 1em;
+    width: 20%;
+}
+
+/* Contents Navi */
+#content-menu h2 {
+    display: none;
+}
+
+ul.menu {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: transparent;
+    border-top: 1px solid #666633;
+    color: #6666CC;
+    font-size: 100%;
+    font-weight: bold;
+}
+li.menu {
+    list-style: none;
+    margin-bottom: 0px;
+    border-right: 1px solid #666633;
+    border-bottom: 1px solid #666633;
+    border-left: 1px solid #666633;
+    line-height: 14px;
+    text-indent: 0;
+}
+/* Current Page Menu */
+li.cur-menu {
+    list-style: none;
+    margin-bottom: 0px; 
+    padding: 3px 5px;
+    border-right: 3px solid #666633;
+    border-bottom: 1px solid #666633;
+    border-left: 3px solid #666633;
+    background-color: transparent;
+    color: #997767;
+    line-height: 14px; 
+}
+a.menu, a.menu:visited {
+    display: block;
+    padding: 5px 5px;
+    border-right: 3px solid #999966;
+    border-bottom: 0px;
+    border-left: 3px solid #999966;
+    background: #666633 url(./resources/silk_bg.png);
+    color: #eeeedd;
+    text-decoration: none;
+    text-shadow: #999966 0.2em 0.2em 0.2em;
+}
+a.menu:hover {
+    background: #ffffff url(./resources/bg_s_hover.png);
+    border-right: 3px solid #724D48;
+    border-bottom: 0px;
+    border-left: 3px solid #724D48;
+    color: #724D48;
+    text-shadow: #999966 0.2em 0.2em 0.2em;
+}
+/* Colored Menu Box */
+div.menu {
+   margin: 2em 0em 1em 0em;
+}
+div.menu h2 {
+    margin: 0em 0em 1em 0em;
+    padding: 0em 0em 0.5em 1.5em;
+    background: #ffffff url(./resources/h_bg.png) no-repeat;
+    font-size: 1em;
+}
+div.menu h2 a {
+    border: 0;
+}
+
+div.menu p {
+    padding-left: 0.5em;
+}
+div.menu ul {
+    margin-left: 2px;
+    padding-left: 18px;
+}
+#search input {
+    margin: 0px 5px 5px 0px;
+}
+#keyword {
+    width: 80%;
+}
+
+/* Archive, Category, CSS-Swicher Form */
+#archives, 
+#category,
+#css-form {
+    margin: 10px 0px 10px 0px;
+}
+
+/* Admin Menu */
+#logout {
+    width: 100%;
+    border: 1px solid #999999;
+    background: #eeeeee url(../_shared/gray_stripe.png);
+    text-align: center;
+}
+h2.menu-box {
+    margin: 0 0 0.5em 0;
+    padding: 0.5em 0 0.5em 0;
+    border-top: 1px solid;
+    border-bottom: 1px solid;
+}
+#menu-box h3 {
+    margin: 2em 0 1em 0;
+    padding: 0.8em 1em 0.8em 1em;
+    border-top: 1px solid;
+    border-bottom: 1px solid;
+    font-size: 100%;
+}
+
+
+/*
+-----------------------------------------------------------------
+    FOOTER BOX
+-----------------------------------------------------------------
+*/
+#footer  {
+    clear: both;
+    margin: 1em 0em 0em 0em;
+    padding: 2em 1em 1em 1em;
+    background: url(./resources/silk_bg_footer_top.png) repeat-x top #D4CEBC;
+}
+/* Validator Logos */
+.logo {
+    float: left;
+    margin: 0px 1em 0.5em 0px;
+}
+.validator {
+    margin: 0px 5px 5px 0px;
+}
+
+#validators, #w3c-validators {
+    margin: 0;
+    padding: 0;
+}
+
+#validators a:link, #validators a:visited  {
+    margin: 0px 3px 0px 0px;
+    padding: 2px 8px 2px 8px; 
+    border: 1px solid #666666;
+    background: transparent url(./resources/bg_s.png);
+    color: #333300;
+    text-decoration: none;
+}
+#validators a:hover  {
+    margin: 0 3px 0 0;
+    padding: 2px 8px 2px 8px; 
+    border: 1px solid #997767;
+    background: transparent url(./resources/bg_s.png);
+    color: #000000;
+    text-decoration: none;
+    text-shadow: #999966 0.2em 0.2em 0.2em;
+
+}
+#validators a:active {
+    margin: 0 3px 0 0;
+    padding: 2px 8px 2px 8px;
+    border: 1px solid #ff6600;
+    background-image : url(./resources/bg_s_hover.png);    
+    text-decoration: none;
+}
+
+address {
+    margin: 0.5em 0 0 0;
+}
+
+#page-generation {
+    clear: both;
+    margin: 0;
+    padding: 0;
+    background: transparent;
+    color: #666666;
+    font-size: 90%;
+}
+/*
+-----------------------------------------------------------------
+  TEXT DECORATIONS
+-----------------------------------------------------------------
+*/
+blockquote {
+    margin-left: 1em;
+    margin-right: 0;
+    padding: 1em;
+    border-left: 5px solid #999966;
+    background: #F1F1E0 url(../_shared/bottom_right.png) no-repeat right bottom;
+    color: #000000;
+}
+div.citesource {
+    margin-top: 5px;
+    padding-right: 1.5em;
+    border-top: 1px solid #999966;
+    text-align: right;
+}

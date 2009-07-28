@@ -1,0 +1,425 @@
+@charset "utf-8";
+@import url(../_import/common.css);
+@import url(../_import/text_decorations.css);
+
+/*
+  ---------------------------------------------------------------
+   P_BLOG CSS TEMPLATE "Sunlit Trees"
+
+   @since 2005-03-23 23:33:07 updated: 2006-01-06 00:20:40
+  ---------------------------------------------------------------
+  INDEX : 
+     - BASE
+     - HEADER
+     - CONTENT
+     - MENU BOX
+     - FOOTER
+  ---------------------------------------------------------------
+  Background image: 
+  @ original : SKY002
+         by Still Life <http://still.under.jp/p_blog/index.php>
+  ---------------------------------------------------------------
+*/
+
+/*
+-----------------------------------------------------------------
+    BASE ELEMENTS
+-----------------------------------------------------------------
+*/
+
+body {
+    margin: 0;
+    padding: 0;
+    background: #eeeeee url(../_shared/bg_v_stripe.png);
+    color: #333333;
+    font-size: 90%;
+    font-family: "Lucida Grande", "Lucida Sans Unicode", Tahoma,
+                 "HiraMaruPro-W4", "ヒラギノ丸ゴ Pro W4", 
+                 "Hiragino Kaku Gothic Pro", "HG丸ゴシックM-PRO", sans-serif;
+    line-height: 170%;
+    text-align: center;
+}
+
+h1, h2, h3, h4, h5, ul.menu, th {
+    font-family: "Arial Rounded MT Bold", sans-serif;
+    font-weight: normal;
+}
+
+#wrapper {
+    width: 90%;
+    max-width: 1024px;
+    min-width: 750px;
+    margin: 0 auto;
+    padding: 0;    
+    background-color: #ffffff;
+    border-right: 1px solid #cccccc;
+    border-bottom: 1px solid #cccccc;
+    border-left: 1px solid #cccccc;
+    text-align: left;
+}
+
+a:link {
+    color: #6666CC;
+    text-decoration: none;
+} a:visited {
+    color: #9966cc;
+    text-decoration: none;
+} a:hover {
+    color: #333399;
+    text-decoration: underline;
+} a:active {
+    color: #9999ff;
+}
+
+img {
+    border: 0;
+}
+
+/* Forms */
+input, textarea, select {
+    font-size: 100%;
+}
+
+input[type="text"] {
+    font-size: 100%;
+    font-family: "HiraMaruPro-W4", sans-serif;
+}
+
+fieldset {
+    margin: 2em 0 1em 0;
+    padding: 1.5em 0 1.5em 1em;
+    border: 0;
+    border-top: 1px solid #cccccc;
+    border-bottom: 1px solid #cccccc;
+}
+
+legend {
+    padding: 0 2em 0 2em;
+    margin-left: 1em;
+    border: 1px solid #cccccc;
+}
+
+.noscript {
+    display: inline;
+}
+
+/*
+-----------------------------------------------------------------
+    HEADER BOX
+-----------------------------------------------------------------
+*/
+
+#header {
+    height: 120px;
+    margin: 0 6px 0 6px;
+    padding: 1em;
+    background: #BBA0A1 url(./resources/title_bg_1024.jpg);
+    border-bottom: 4px double #cccccc;
+} #header h1 {
+    width: 60%;
+    padding: 0.5em 0em 0.5em 0.5em;
+    background: transparent url(../_shared/trans_bg_gray.png);
+    border: 1px solid #eeeeee;
+    color: #000000;
+    font-family: Times, serif;
+    font-style: italic;
+    font-weight: normal;
+    text-decoration: none;
+    text-shadow: #666666 0.2em 0.2em 0.2em;
+
+} #header h1 a:link, #header h1 a:visited {
+    color: #000000;
+    text-decoration: none;
+} #header h1 a:hover {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+#subtitle {
+    font-size: 100%;
+    font-family: times, serif;
+    font-style: italic;
+    margin: 0 0 1em 1em;
+    text-shadow: #dddddd 0.2em 0.2em 0.2em;
+}
+
+/*
+-----------------------------------------------------------------
+    CONTENT BOX
+-----------------------------------------------------------------
+*/
+
+#content {
+    float: left;
+    width: 70%;
+    padding: 1em 1em 2em 2em;
+    margin: 0.5em 0 0.5em 0;
+    border-right: 1px solid #dddddd;
+}
+
+#wide-content {
+ /*   padding: 2em 3em 2em 3em;*/
+}
+
+#content h1 {
+    font-size: 170%;
+}
+
+h2#archive-title {
+    padding: 0 0 5px 0;
+    border-bottom: 1px solid #333333;
+    font-size: 130%;
+}
+
+h2.date-title {
+    padding: 0.3em 0 0.2em 0.5em;
+    border-top: 4px double #F8F0F1;
+    border-bottom: 4px double #F8F0F1;
+    background-color: #BBA0A1;
+    color: #F8F0F1;
+    font-family: times, serif;
+    font-style: italic;
+    font-weight: normal;
+    font-size: 100%;
+}
+
+.section {
+    padding: 0em 1em 0em 1em;
+}
+
+.article-title {
+    font-size: 120%;
+    text-shadow: #dddddd 0.2em 0.2em 0.2em;
+}
+
+.date {
+    background-color: transparent;
+    color: #666666;
+    font-size: 80%;
+}
+
+
+/* Article Footer */
+.a-footer {
+    margin-top: 2em;
+    padding-top: 0.5em;
+    border-top: 1px solid #cccccc;
+    background-color: transparent;
+    font-size: 90%;
+    font-family: serif;
+    font-style: italic;
+    text-align: right;
+}
+
+/* Footer Anchors */
+.a-footer a {
+	padding: 0px 0px 4px 14px;
+	margin: 0em  0.5em 0em 0em;
+	background: #ffffff url(../_shared/anchor_bg.png) 0px 0px no-repeat;
+    font-size: 12px;
+    text-shadow: #ffffff 0.2em 0.2em 0.2em;
+} .a-footer a:hover {
+	background-position: 0px -30px;
+} .a-footer a:active {
+	background-position: 0px -60px;
+} a.status-on {
+	background-position: 0px -90px !important;
+} a.status-on:hover {
+	background-position: 0px -30px !important;
+} a.status-on:active {
+	background-position: 0px -60px !important;
+}
+
+
+/* Previous Logs Navi Link */
+#prev-logs {
+    margin: 2em 1em 1em 2em;
+    text-align: right;
+} #prev-logs a {
+    display: inline;
+    margin-right: 2px;
+    padding: 2px 20px 2px 10px;
+    border: 1px solid #cccccc;
+    background: #eeeeee url(../_shared/arrow_next.png) no-repeat 100% 50%;
+    text-decoration: none;
+} #prev-logs a:hover {
+    background-color: #ffffff;
+}
+
+/*
+-----------------------------------------------------------------
+    MENU BOX
+-----------------------------------------------------------------
+*/
+
+#menu-box {
+    float: right;
+    width: 22%;
+    margin: 2em 1em 2em 0em;
+}
+
+/* Contents Navi */
+#content-menu h2 {
+    padding: 0.5em 0em 0.2em 1.2em;
+    background: #ffffff url(./resources/header_mark.png) no-repeat 0 50%;
+    font-size: 100%;
+    border-bottom: 1px solid #BBA0A1;
+}
+
+ul.menu {
+    list-style: none;
+    right: 2.5%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    border-top: 1px solid #BBA0A1;
+    background-color: transparent;
+    font-weight: normal;
+}
+
+li.menu {
+    line-height: 14px;
+    list-style: none;
+    margin-bottom: 0;
+    border-left: 1px solid #BBA0A1;
+    border-right: 1px solid #BBA0A1;
+    border-bottom: 1px solid #BBA0A1;
+    text-indent: 0;
+}
+
+/* Current Page Menu */
+li.cur-menu {
+    line-height: 14px; 
+    list-style: none; 
+    margin-bottom: 0; 
+    padding: 5px 5px;
+    border-right: 4px solid #BBA0A1;
+    border-bottom: 1px solid #BBA0A1; 
+    border-left: 4px solid #BBA0A1;
+    background-color: #BBA0A1;
+    color: #ffffff;
+}
+
+a.menu, a.menu:visited {
+    display: block;
+    padding: 5px;
+    color: #333333;
+    text-shadow: #dddddd 0.2em 0.2em 0.2em;
+    border-right: 4px double #BBA0A1;
+    border-left: 4px double #BBA0A1;
+    text-decoration : none;
+}
+
+a.menu:hover {
+    color: #ffffff;
+    background-color: #BBA0A1;
+    border-right: 4px solid #F8F0F1;
+    border-left: 4px solid #F8F0F1;
+    text-decoration : none;    
+}
+
+a.menu:active {
+
+}
+
+
+/* ---------------------------------------------- */
+.menu h2 {
+    padding: 0.5em 0em 0.2em 1.2em;
+    background: #ffffff url(./resources/header_mark.png) no-repeat 0 50%;
+    font-size: 100%;
+    border-bottom: 1px solid #BBA0A1;
+}
+
+.menu ul {
+    margin: 0;
+    padding: 0 0 0 18px;
+    font-size: 80%;
+}
+
+.menu p {
+    padding-left: 0.5em;
+}
+
+#search input {
+    margin: 0px 5px 5px 0px;
+}
+
+#keyword {
+    width: 90%;
+}
+
+/* Archive, Category, CSS-Swicher Form */
+#archives, 
+#category,
+#css-form {
+    margin: 10px 0px 10px 0px;
+}
+
+
+#rss, #rss2 {
+    display: block;
+    width: 81px;
+} #rss:link, #rss:visited, #rss2:link, #rss2:visited {
+    margin: 0.5em 0;
+    padding: 0 8px 0 22px;
+    border: 1px solid #F8F0F1;
+    border-top: 4px double #F8F0F1;
+    border-bottom: 4px double #F8F0F1;
+    background: #BBA0A1 url(../_shared/feed-icon-16x16.png) no-repeat 2px 50%;
+    color: #ffffff;
+    font-size: 90%;
+    text-decoration: none;
+}
+
+/*
+-----------------------------------------------------------------
+    FOOTER BOX
+-----------------------------------------------------------------
+*/
+
+#footer {
+    clear: both;
+    margin: 2em 6px 0 6px;
+    padding: 1em 2em 1em 2em;
+    border-top: 4px double #cccccc;
+    background: #cccccc url(./resources/title_bg_1024.jpg) bottom;
+    color: #ffffff;
+    font-family: serif;
+    font-style: italic;
+    text-align: center;
+}
+
+#validators, #w3c-validators {
+    margin: 0;
+    padding: 0;
+}
+
+#validators a:link, #validators a:visited {
+    width: 81px;
+    margin: 0px 3px 0px 0px;
+    padding: 3px 8px 2px 8px; 
+    border: 1px solid #eeeeee;
+    background: transparent url(../_shared/trans_bg_gray.png);    
+    color: #000000;
+    font-size: 11px;
+    font-family: times, serif;
+    text-align: center;
+    text-decoration : none;
+    text-shadow: #666666 0.2em 0.2em 0.2em;
+
+}
+
+#validators a:hover {
+    color: #ffffff;
+}
+
+address {
+    margin: 0.5em 0 0 0;
+}
+
+#page-generation {
+    clear: both;
+    margin: 0;
+    padding: 0;
+}

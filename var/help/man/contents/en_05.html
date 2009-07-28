@@ -1,0 +1,103 @@
+<ul class="flip-menu">
+<li><a href="./index.php" accesskey="m">P_BLOG Manual</a></li>
+<li><a href="./index.php?id=en_00" accesskey="i">Index</a></li>
+<li><span class="cur-tab">CREATE YOUR OWN STYLE</span></li>
+</ul>
+<!-- Begin .section h2 -->
+<div class="section" id="toc">
+<h2>CREATE YOUR OWN STYLE</h2>
+<ul>
+<li><a href="./index.php?id=en_05#customizing-sample-css">Customizing CSS</a></li>
+<li><a href="./index.php?id=en_05#creating-style-first-step">Your own CSS : First STEP</a></li>
+<li><a href="./index.php?id=en_05#creating-style-second-step">Your Own CSS : Second STEP</a></li>
+<li><a href="./index.php?id=en_05#agent-spacified-style">CSS for different browsers</a></li>
+<li><a href="./index.php?id=en_05#about-cascading">CASCADING</a></li>
+<li><a href="./index.php?id=en_05#example-1">Example: Apply different font size to the specific browser.</a></li>
+<li><a href="./index.php?id=en_05#css-coding-standards">P_BLOG CSS Coding Standards</a></li>
+</ul>
+</div>
+
+<div class="section" id="customizing-sample-css">
+<h2>Customizing CSS</h2>
+<p>
+P_BLOG is completery CSS-styled. 
+So I recommend you to create your own style sheets.
+If you are still not a CSS styler, just learn it. "IT'S FUN!":-).
+</p>
+</div>
+
+<div class="section" id="creating-style-first-step">
+<h2>Your own CSS : First STEP</h2>
+<p>
+Try duplicate the included CSS folder of your choice in "styles" folder
+and change the value of the font or background color, 
+width of the article-box, and so on. easy,huh?
+</p>
+<p>
+If you want to add your original CSS name to CSS Switcher selector tags,
+please check "Custom File" in Custome File Edit menu in admin mode and rewrite it.
+</p>
+<p>CSS Switcher code is in <code class="filename">user_config.inc.php</code>. If you want to add your original, find:</p>
+<div class="command">
+<pre><var>$styles</var> = array(
+    "Silk"        =&gt; "silk",
+    "Alminum"     =&gt; "alminum",
+    "Rich Green"  =&gt; "rich_green");
+</pre>
+</div>
+<p>and rewrite it. Notice that the pattern of array is <code>"NAME" =&gt; "CSS Folder Name"</code>.</p>
+<h3 class="important">CAUTION</h3>
+<p>Do not <span class="important">&quot;&nbsp;,&nbsp;(commna)&quot;</span> at the end of the last style definition. </p>
+</div>
+
+<div class="section" id="creating-style-second-step">
+<h2>Your Own CSS : Second STEP</h2>
+<p>Here is the basic XHTML structure of P_BLOG: </p>
+<p><img src="./contents/resources/xhtml_structure.png" width="458" height="631" alt="XHTML Structure" /></p>
+<p>See Also : </p>
+<p class="ref"><a href="./index.php?id=xhtml_class_en">P_BLOG XHTML sturucture &amp; CSS classes</a></p>
+</div>
+
+<div class="section" id="agent-spacified-style">
+<h2>CSS for different browsers</h2>
+<p>P_BLOG can chek user agent and apply a different CSS. Here is the list:</p>
+<dl>
+<dt><code class="filename">default.css </code></dt>
+<dd>For all browsers. *MUST*.</dd>
+<dt><code class="filename">gecko_style.css </code></dt>
+<dd>For the browsers with Gecko lendering engine. Mozilla/Camino/Firefox, etc.</dd>
+<dt><code class="filename">khtml_style.css </code></dt>
+<dd>For the browsers with KHTML lendering engine. Safari 1.0〜, OmniWeb4.5〜, Konqueror, etc.</dd>
+<dt><code class="filename">win_ie_style.css</code></dt>
+<dd>For Windows IE</dd>
+</dl>
+</div>
+
+<div class="section" id="about-cascading">
+<h2>CASCADING</h2>
+<p>Files on the left <code>@import</code> and override the file on the right side. <code class="filename">common.css</code> and <code class="filename">text_decorations.css</code> are in <code class="filename">_import</code> directory and are shared by all styles.</p>
+<img src="./contents/resources/css_structure.png" width="339" height="311" alt="CSS Structure" />
+</div>
+
+<div class="section" id="example-1">
+<h2 class="important">Example: Apply different font size to the specific browser.</h2>
+<p>If you want to set <code class="filename">default.css</code> as the base style and </p>
+<p>want to apply <code>font-size: x-small</code> to WinIE6,</p>
+<p>then create the file named <code class="filename">win_ie_style.css</code> in the same direcoty of <code class="filename">default.css</code>, and write </p>
+<div class="example">
+<pre>@charset "utf-8";
+@import url(./default.css);
+
+body {
+    font-size: x-small;
+}</pre>
+</div>
+<p>in it. <code class="filename">win_ie_style.css</code> will override the <code class="filename">default.css</code> by <code>@import</code>.</p>
+</div>
+
+
+<div class="section" id="css-coding-standards">
+<h2>P_BLOG CSS Coding Standards</h2>
+<p>CSS property order of P_BLOG's sample CSS is based on <a href="http://www.mozilla.org">Mozilla.org</a>'s recomended property order:</p>
+<p class="ref"><a href="../../../styles/_CODING_STANDARDS">_CODING_STANDARDS</a></p>
+</div>

@@ -1,0 +1,7 @@
+@charset "utf-8";
+@import url(../rich_green/default.css);
+
+#wrapper {
+    width: 800px;
+    margin: 0.5em auto;
+}

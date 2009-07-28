@@ -1,0 +1,36 @@
+<ul class="flip-menu">
+<li><a href="./index.php" accesskey="m">P_BLOG Manual</a></li>
+<li><a href="./index.php?id=en_00" accesskey="i">Index</a></li>
+<li><span class="cur-tab">CONFIGURE YOUR PHP</span></li>
+</ul>
+<!-- Begin .section h2 -->
+<div class="section" id="toc">
+<h2>CONFIGURE YOUR PHP</h2>
+<ul>
+<li><a href="./index.php?id=en_06#setting-upload-max">Setting MAX Upload Size</a></li>
+</ul>
+</div>
+<div class="section" id="setting-upload-max">
+<h2>Setting MAX Upload Size</h2>
+<p>
+Defalut max value of "POST" in PHP4.3.x is 8MB and max of upload file size
+is 2MB. If you want to upload your stuff comfortably, I recommend to increase
+the size of these.
+To make this work, rewrite your <span class="blue">"/usr/local/lib/php.ini"</span> file on your server machine like:
+</p>
+<div class="command">
+<p>Line 310</p>
+<code>post_max_size = <span class="important">8M</span></code>
+<p>Line 378</p>
+<code>upload_max_filesize = <span class="important">2M</span></code>
+</div>
+<p>to</p>
+<div class="example">
+<pre>
+post_max_size = <span class="important">100M</span>
+upload_max_filesize = <span class="important">100M</span>
+</pre>
+</div>
+<p>and then reboot the server software.</p>
+<p>If you are not allowed to modify <code class="filename">php.ini</code>, ask your system admin for more info.</p>
+</div>

@@ -1,0 +1,167 @@
+<ul class="flip-menu">
+<li><a href="./index.php" accesskey="m">P_BLOG Manual</a></li>
+<li><a href="./index.php?id=en_00" accesskey="i">Index</a></li>
+<li><span class="cur-tab">HOW TO USE</span></li>
+</ul>
+<!-- Begin .section h2 -->
+<div class="section" id="toc">
+<h2>HOW TO USE</h2>
+<ul>
+<li><a href="./index.php?id=en_02#post_comment">POST YOUR LOG</a></li>
+<li><a href="./index.php?id=en_02#upload_files">UPLOAD BINARY FILES INTO MySQL</a></li>
+<li><a href="./index.php?id=en_02#access_analyze">CHECK VISITORS with ACCESS ANALYZER</a></li>
+</ul>
+</div>
+
+<div class="section" id="post_comment">
+<h2>POST YOUR LOG</h2>
+<p>
+Go to the Admin page and use your user account name and password that you created in &quot;ACCOUNT MANAGER&quot; to login. If your log-in sucess, you're ready. In the post page, you can see three text fields. 
+</p>
+
+<div class="section" id="title">
+<h3>Title</h3>
+<p>Name your log in this field. </p>
+</div>
+
+<div class="section" id="uri">
+<h3>URI(URL) field</h3>
+<p>URI you write in this field will automatically linked. This means this URI will wrap the article title above. If you don't want to link your title, just leave it as "<code>http://</code>".</p>
+</div>
+
+<div class="section" id="category">
+<h3>Cotegory field</h3>
+<p>P_BLOG is multi-categorizable. Keywords must be separated by comma.</p>
+<p>For example：</p>
+<div class="example">
+<p>PHP,MySQL,Web Develop,Web Application</p>
+</div>
+<p>Then you can categorize and list up the log in "PHP", "MySQL", "Web Develop", and "Web Applicaiton".</p>
+</div>
+
+<div class="section" id="comment">
+<h3>Comment</h3>
+<p>Wrapping your text with <code class="tag">&lt;p&gt;&lt;/p&gt;</code> is recommended. <code class="tag">&lt;p&gt;</code> means &quot;Paragraph&quot; and it breaks lines and generates spaces between paragraphs and paragraphs automatically.  To generate gramatically &amp; visually beautiful XHTML, use <code class="tag">&lt;p&gt;&lt;/p&gt;</code> instead of using many many <code class="tag">&lt;br /&gt;</code>s.</p>
+<p><span class="important">GOOD Example：</span></p>
+<div class="example">
+<pre>
+<code class="tag">&lt;p&gt;</code>Your comment goes like this.<code class="tag">&lt;/p&gt;</code>
+<code class="tag">&lt;p&gt;</code>Your next paragraph should go like this.<code class="tag">&lt;/p&gt;</code>
+</pre>
+</div>
+<p><span class="important">BAD Example：</span></p>
+<div class="bad example">
+<pre>
+Your commetn goes like this.<code class="tag">&lt;br /&gt;</code>
+<code class="tag">&lt;br /&gt;</code>
+<code class="tag">&lt;br /&gt;</code>
+Too many <code class="tag">&lt;br /&gt;</code>s to make spaces (like this) is not recommended.
+</pre>
+</div>
+<p><code class="tag">&lt;p&gt;</code> is always better than <code class="tag">&lt;br /&gt;s</code> even when your CSS is off.</p>
+
+<p>If you are not familiar with coding XHTML tags, It's OK because XHTML tags you should master to use P_BLOG are not so many, and TAG buttons will help you write. </p>
+
+<h4 class="important">TEXT DECORATIONS ：</h4>
+<p>If you want to emphasize some words, use: </p>
+<ol>
+<li><code class="tag">&lt;em&gt;</code></li>
+<li><code class="tag">&lt;strong&gt;</code></li>
+<li><code class="tag">&lt;strong class="stronger"&gt;</code></li>
+<li><code class="tag">&lt;strong class="very-strong"&gt;</code></li>
+</ol>
+<p>How to markup : </p>
+<div class="example">
+<code class="tag">&lt;em&gt;</code>Emphasize<code class="tag">&lt;/em&gt;</code><br />
+<code class="tag">&lt;strong&gt;</code>Strong<code class="tag">&lt;/strong&gt;</code><br />
+<code class="tag">&lt;strong class="stronger"&gt;</code>Stronger<code class="tag">&lt;/strong&gt;</code><br />
+<code class="tag">&lt;strong class="very-strong"&gt;</code>Very Strong<code class="tag">&lt;/strong&gt;</code>
+</div>
+<p>Here's how it looks :</p>
+<div class="example">
+<em>Emphasize</em>
+<strong>Strong</strong>
+<strong class="stronger">Stronger</strong>
+<strong class="very-strong">Very Strong</strong>
+</div>
+
+<h4 class="important">How to write Hyper Link ：</h4>
+<p>(Level-1) Use　<code class="tag">&lt;a&gt;</code>　tag to markup the link. Write the target URI in <code>href</code> attribute.</p>
+<div class="example">
+<code class="tag">&lt;a href="<span class="important">http://pbx.homeunix.org/p_blog/</span>"&gt;</code>P_BLOG Project<code class="tag">&lt;/a&gt;</code>
+</div>
+<p>(Level-2) You can generate popup title by using　<code>title</code>　attriblute like this : </p>
+<div class="example">
+<code class="tag">&lt;a href="http://pbx.homeunix.org/p_blog/" <br />
+title="<span class="important">P_BLOG Project Official Site</span>"&gt;</code>P_BLOG Project<code class="tag">&lt;/a&gt;</code>
+</div>
+<p>(Level-3) If you want to make external references look different from a regular link, use 　<code>ex-ref</code>　class. </p>
+<div class="example">
+<code class="tag">&lt;a href="http://pbx.homeunix.org/p_blog/" <br />
+title="P_BLOG Project Official Site"<br />
+class="<span class="important">ex-ref</span>"&gt;</code>P_BLOG Project<code class="tag">&lt;/a&gt;</code>
+</div>
+<p>And... here's the result. ↓</p>
+<p><a href="http://pbx.homeunix.org/p_blog/" title="P_BLOG Project Official Site" class="ex-ref">P_BLOG Project</a></p>
+
+<h4 class="important">QUOTATIONS ：</h4>
+<p>To quote, use <code class="tag">&lt;blockquote&gt;</code>tag. Here's an example.</p>
+<div class="example">
+<code class="tag">&lt;blockquote cite="<span class="important">http://pbx.homeunix.org/p_blog/</span>"&gt;</code><br />
+<code class="tag">&lt;p&gt;</code>Quote from P_BLOG Project Website.<code class="tag">&lt;/p&gt;</code><br />
+<code class="tag">&lt;/blockquote&gt;</code>
+</div>
+<p>...and here's the result : </p>
+<blockquote cite="http://pbx.homeunix.org/p_blog/">
+<p>Quote from P_BLOG Project Website.</p>
+</blockquote>
+<p>Notice that the URI in <code class="tag">cite</code> attribute will be converted to anchor link automatically.</p>
+
+<h4 class="important">How To Write Computer Keys：</h4>
+<p>Use <code class="tag">&lt;kbd&gt;</code> element to define computer keyboards. To emphazie a specific key, use <code class="tag">class="important"</code>. Here's an example :</p>
+<div class="example">
+<code class="tag">&lt;kbd&gt;</code>shift<code class="tag">&lt;/kbd&gt;</code><br />
+<code class="tag">&lt;kbd&gt;</code>option<code class="tag">&lt;/kbd&gt;</code><br />
+<code class="tag">&lt;kbd&gt;</code>command<code class="tag">&lt;/kbd&gt;</code><br />
++<br />
+<code class="tag">&lt;kbd class="<span class="important">important</span>"&gt;</code>S<code class="tag">&lt;/kbd&gt;</code>
+</div>
+<p>...and the result :</p>
+<p><kbd>shift</kbd><kbd>option</kbd><kbd>command</kbd>+<kbd class="important">S</kbd></p>
+
+<h4 class="important">SEE ALSO : </h4>
+<p>Text decoration classes are defined in <q><a href="../../../styles/_import/text_decorations.css"><code class="filename">text_decorations.css</code></a></q>, and some P_BLOG's CSS classes are based on and compatible with the classes defined in Mozilla.org's Markup Reference :</p>
+<p class="ref"><a href="http://www.mozilla.org/contribute/writing/markup" title="mozilla.org Markup Reference">mozilla.org Markup Reference</a></p>
+</div>
+
+<div class="section" id="file-upload">
+<h3>Uploading files</h3>
+<p>With this choose file forms, you can upload images, files with your log. Files will be stocked in <span class="red">"resources"</span> folder, not in MySQL, so remember it when you write the file path.</p>
+<p><span class="important">Image Path Example：</span></p>
+<div class="example">
+<code>
+&lt;img src="<span class="important">./resources</span>/my_image.png" width="100" height="20" alt="Image" /&gt;
+</code>
+</div>
+<p>You can inclease or declease the max value of upload files in Preferences Page. (Default is &quot;3&quot;)</p>
+</div>
+</div>
+
+
+<div class="section" id="upload_files">
+<h2>UPLOAD BINARY FILES INTO MySQL</h2>
+<p>This is a bit different part of P_BLOG to the other weblog systems. You can stock many types of binary files like images, text, html, PDF, Photoshop PSD files, .mov or other movie formats, big files like over 100MB, or anything, into MySQL. All files will be downloadable.</p>
+<p>Also, you can call these files from your blog very easily.  You can pull out the files with <code class="filename">bin.php?id=FILE ID</code>.  For example, if you want to call PDF files named <code class="filename">foo.pdf</code> which id is <code>123</code> with the anchor tag, you can code like:</p>
+<div class="example">
+<code class="tag">&lt;a href="<span class="important">./bin.php?id=123</span></code><code class="filename">"&gt;</code><code class="filename">foo.pdf</code><code class="tag">&lt;a&gt;</code>
+</div>
+</div>
+
+<div class="section" id="access_analyze">
+<h2>CHECK VISITORS with ACCESS ANALYZER</h2>
+<p>Using analyzer is no-brainer. If you have set up <code class="filename">user_config.inc.php</code> already, you don't have to do anything. just go to </p>
+<div class="example">
+<code class="filename">/your_p_blog/analyze/index.php</code>
+</div>
+<p>and enter your name, password, and click go. If user auth were success, analyze page would appear.</p>
+</div>

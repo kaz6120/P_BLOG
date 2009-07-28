@@ -1,0 +1,132 @@
+<ul class="flip-menu">
+<li><a href="./index.php" accesskey="m">P_BLOG Manual</a></li>
+<li><a href="./index.php?id=en_00" accesskey="i">Index</a></li>
+<li><span class="cur-tab">CUSTOMIZE YOUR &quot;VARS&quot; PAGE</span></li>
+</ul>
+<!-- Begin .section h2 -->
+<div class="section" id="toc">
+<h2>CUSTOMIZE YOUR &quot;VARS&quot; PAGE</h2>
+<ul>
+<li><a href="./index.php?id=en_03#about-vars">What's &quot;VARS&quot;?</a></li>
+<li><a href="./index.php?id=en_03#architecture">How &quot;var/index.php&quot; works</a></li>
+<li><a href="./index.php?id=en_03#faq">F.A.Q</a></li>
+</ul>
+</div>
+
+<div class="section" id="about-vars">
+<h2>What's &quot;VARS&quot;?</h2>
+<p>&quot;VARS&quot; page is a &quot;VARIABLE&quot; page.  You can add more pages and expand your contents easily by adding TEXT files, include files, HTML files and PHP program files.</p>
+</div>
+
+<div class="section" id="architecture">
+<h2>How &quot;var/index.php&quot; works</h2>
+<p><code class="filename">/var/index.php</code> is the PHP script to load text files or execute PHP program files stored in <code class="filename">/contents/</code> directory.</p>
+<div class="example">
+<p>Here's an example↓</p>
+<pre class="filename">
+var/index.php
+   /contents/foo.inc.php
+            /foo.txt
+            /foo.php
+            /foo.inc
+            /foo.html
+            /foo.text
+            /sys_info.inc.php</pre>
+</div>
+<p>Loadable file formats are (ordered by priority) : </p>
+<ol>
+<li>PHP files with <code class="filename">.inc.php</code></li>
+<li>PHP files with <code class="filename">.php</code></li>
+<li>include file with <code class="filename">.inc</code></li>
+<li>HTML file with <code class="filename">.html</code><br />
+(<span class="important">NOTE</span>：WITHOUT XHTML header and footer)</li>
+<li>Pre formatted text file with <code class="filename">.txt</code></li>
+<li><a href="http://daringfireball.net/projects/markdown/" title="Daring Fireball: Markdown" class="ex-ref">Markdown</a> text file with <code class="filename">.text</code></li>
+</ol>
+<h3>To add pre-formatted text, use:</h3>
+<ul>
+<li><code class="filename">foo.txt</code></li>
+</ul>
+<h3>To add <a href="http://daringfireball.net/projects/markdown/" title="Daring Fireball: Markdown" class="ex-ref">Markdown</a> text text, use:</h3>
+<ul>
+<li><code class="filename">foo.text</code></li>
+</ul>
+<h3>To add XHTML marked-up file, use:</h3>
+<ul>
+<li><code class="filename">foo.inc</code></li>
+<li><code class="filename">foo.html</code></li>
+</ul>
+<h3>To add executable PHP file, use:</h3>
+<ul>
+<li><code class="filename">foo.inc.php</code></li>
+<li><code class="filename">foo.php</code></li>
+<li><code class="filename">foo.inc</code></li>
+</ul>
+
+<p>By default, when you access &quot;var/index.php&quot;, it laods &quot;default.inc.php&quot;. 
+If you want to replace it with your original default file, please name it</p>
+<ol>
+<li><code class="filename">default.inc.php</code></li>
+<li><code class="filename">default.php</code></li>
+<li><code class="filename">default.inc</code></li>
+<li><code class="filename">default.html</code></li>
+<li><code class="filename">default.txt</code></li>
+<li><code class="filename">default.text</code></li>
+</ol>
+<p>to load it correctly.</p>
+</div>
+
+<div class="section">
+<h2>SAMPLES</h2>
+<p>This manual page is one of a SAMPLE page. If you chek URI of this page, you can see:</p>
+<div class="command">
+<code class="filename">../var/index.php?id=<span class="important">en_03</span></code>
+</div>
+<p>and the substance of this page is <code class="filename">en_03.html</code> file in <code class="filename">/contents/</code> folder.</p>
+<p>First, please write a simple page with basic XHTML tags LIKE:</p>
+<div class="example">
+<pre>
+<span class="tag">&lt;h1&gt;</span>TITLE<span class="tag">&lt;/h1&gt;</span>
+<span class="tag">&lt;h2&gt;</span>SUB-TITLE<span class="tag">&lt;/h2&gt;</span>
+<span class="tag">&lt;p&gt;</span>CONTENTS<span class="tag">&lt;br /&gt;</span>
+CONTENTS AFTER LINE-BREAKS.<span class="blue">&lt;/p&gt;</span>
+</pre>
+</div>
+<p>If you want to use pre-formatted text file, just add <code>pre</code>tags in the beggining and in the end of the file LIKE:</p>
+<div class="example">
+<pre>
+<span class="tag">&lt;pre&gt;</span>
+body{
+    background: #ffffff;
+    color: #000000;
+    font-size: 100%;
+}
+<span class="tag">&lt;/pre&gt;</span>
+</pre>
+</div>
+<p>When you finished writing your file, name it as you like and save it with <code class="filename">.txt</code> extension, put it in the <code class="filename">/contents/</code> directory, and access to:</p>
+<div class="example">
+<code class="filename">../var/index.php?id=<span class="important">your_file</span></code>
+</div>
+<p>Your article is called by id. If you want to stock your files named by date like <code>20051115</code>, save it as <code class="filename">20051115.html</code> and load it by:</p>
+<div class="example">
+<code class="filename">../var/index.php?id=<span class="important">20051115</span></code>
+</div>
+<p>Got it?</p>
+</div>
+
+<div class="section" id="faq">
+<h2>F.A.Q</h2>
+<div class="section">
+<h3>Q1: Can I create more &quot;VARS&quot; directories under &quot;VARS&quot; ?</h3>
+<div class="section">
+<h4>A1: Yes. It's extremely easy if you know how to duplicate the file :-).</h4>
+<p>If you want to create more directories under &quot;var&quot;, </p>
+<ol>
+<li>Just copy <code class="filename">/vars-sample/</code> directory and rename it as you like.</li>
+<li>Open <code class="filename">index.php</code> with the text editor of your choice and edit <code>USER CONFIG</code>.</li>
+<li>That's it!</li>
+</ol>
+</div>
+</div>
+</div>

@@ -1,0 +1,51 @@
+------------------------------------------------------------
+P_BLOG CSS CODING STANDARDS
+
+$Id: 2004/10/09 09:51:03 Exp $
+------------------------------------------------------------
+
+------------------------------------------------------------
+SUGGESTED PROPERTY ORDER
+------------------------------------------------------------
+CSS property order of P_BLOG is based on the suggested 
+property order of Mozilla.org Base Style Sheet.
+( http://www.mozilla.org/css/base/content.css )
+ 
+/* 
+ * display
+ * list-style
+ * position
+ * float
+ * clear
+ * width
+ * height
+ * margin
+ * padding
+ * border
+ * background
+ * color
+ * font
+ * text-decoration
+ * text-align
+ * vertical-align
+ * white-space
+ * other text
+ * content
+ *
+ */
+
+------------------------------------------------------------
+SUGGESTED TOC (Table Of Contents) ORDER
+------------------------------------------------------------
+/*
+ * BASE ELEMENTS
+ * HEADER BOX
+ * CONTENT BOX
+ * MENU BOX
+ * FOOTER BOX
+ *
+ * TEXT DECORATIONS
+ * OTHER STUFF
+ *
+ */
+

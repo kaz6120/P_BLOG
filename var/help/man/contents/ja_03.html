@@ -1,0 +1,149 @@
+<ul class="flip-menu">
+<li><a href="./index.php" accesskey="m">P_BLOG マニュアル</a></li>
+<li><a href="./index.php?id=ja_00" accesskey="i">索引</a></li>
+<li><span class="cur-tab">「VARS」のカスタマイズ</span></li>
+</ul>
+<!-- Begin .section h2 -->
+<div class="section" id="toc">
+<h2>「VARS」のカスタマイズ</h2>
+<ul>
+<li><a href="./index.php?id=ja_03#about-vars">「VARS」とは</a></li>
+<li><a href="./index.php?id=ja_03#architecture">「<code class="filename">/var/index.php</code>」のしくみ</a></li>
+<li><a href="./index.php?id=ja_03#faq">F.A.Q</a></li>
+</ul>
+</div>
+
+<!-- Begin .section h2 -->
+<div class="section" id="about-vars">
+<h2>「VARS」とは</h2>
+<p>「VARS」とは、「VARIABLE(自由・可変の)」ページです。使用目的によってコンテンツを自由に拡張・追加・カスタマイズするためのページです。コンテンツの「ABOUT」ページやヘルプページ、リンクページ、その他、データベースを使わずファイルで管理したいコンテンツ部分に利用出来ます。</p>
+</div>
+
+<!-- Begin .section h2 -->
+<div class="section" id="architecture">
+<h2>「<code class="filename">/var/index.php</code>」のしくみ</h2>
+<p>「<code class="filename">/var/index.php</code>」は、「<code class="filename">/var/contents</code>」ディレクトリに入っているテキストファイルやPHPファイルを読み込んでコンテンツ部分に表示するPHPプログラムです。サンプルとして「<code class="filename">contents</code>」内にはいくつかファイルが入っているので覗いてみて下さい。</p>
+<div class="example">
+<p>階層の例↓</p>
+<pre class="filename">
+var/index.php
+   /contents/foo.html
+            /foo.text
+            /foo.txt
+            /foo.inc.php
+            /foo.php
+            /foo.inc
+            /default.inc.php
+</pre>
+</div>
+<p>読み込めるファイルは、以下の形式です。(優先順位順)</p>
+<ol>
+<li>拡張子が「<code class="filename">.inc.php</code>」となっているPHPプログラム</li>
+<li>拡張子が「<code class="filename">.php</code>」となっているPHPプログラム</li>
+<li>拡張子が「<code class="filename">.inc</code>」となっているインクルードファイル</li>
+<li>拡張子が「<code class="filename">.html</code>」となっているhtmlファイル<br />
+(<span class="important">注：ヘッダ部とフッタ部は取り除く</span>)</li>
+<li>拡張子が「<code class="filename">.txt</code>」となっているテキストファイル</li>
+<li>拡張子が「<code class="filename">.text</code>」となっている<a href="http://daringfireball.net/projects/markdown/" title="Daring Fireball: Markdown" class="ex-ref">Markdown</a>書式で記述されたテキストファイル</li>
+</ol>
+<p>の6種類です。このような自作のテキストやPHPを追加して、コンテンツを追加出来ます。それぞれの使い分けは、</p>
+<p>普通の整形済みテキストファイルを使う場合:</p>
+<ul>
+<li><code class="filename">foo.txt</code></li>
+</ul>
+<p><a href="http://daringfireball.net/projects/markdown/" title="Daring Fireball: Markdown" class="ex-ref">Markdown</a>書式テキストファイルを使う場合:</p>
+<ul>
+<li><code class="filename">foo.text</code></li>
+</ul>
+<p>XHTMLタグでマークアップしたファイルを使う場合:</p>
+<ul>
+<li><code class="filename">foo.inc</code></li>
+<li><code class="filename">foo.html</code></li>
+</ul>
+<p>実行可能なPHPファイルを使う場合:</p>
+<ul>
+<li><code class="filename">foo.inc.php</code></li>
+<li><code class="filename">foo.php</code></li>
+<li><code class="filename">foo.inc</code></li>
+</ul>
+<p>...といった具合に使用して下さい。</p>
+<p>デフォルトでは「<code class="filename">/var/index.php</code>」にアクセスすると</p>
+<ol>
+<li><code class="filename">default.inc.php</code></li>
+<li><code class="filename">default.php</code></li>
+<li><code class="filename">default.inc</code></li>
+<li><code class="filename">default.html</code></li>
+<li><code class="filename">default.txt</code></li>
+<li><code class="filename">default.text</code></li>
+</ol>
+<p>の順でデフォルト用のファイルを探して読みにいきます。サンプルとして「<code class="filename">default.inc.php</code>」というファイル名の、あなたのP_BLOGが稼働しているシステムの情報を表示するPHPプログラムを入れてあります。オリジナルと差し替えるときは</p>
+<ol>
+<li><code class="filename">default.inc.php</code></li>
+<li><code class="filename">default.php</code></li>
+<li><code class="filename">default.inc</code></li>
+<li><code class="filename">default.html</code></li>
+<li><code class="filename">default.txt</code></li>
+<li><code class="filename">default.text</code></li>
+</ol>
+<p>のいずれか一つを配置して下さい。</p>
+</div>
+
+<div class="section">
+<h2>使用例</h2>
+<p>このマニュアルページ自体も、使用例です。このページのアドレスを見ると、</p>
+<div class="command">
+<code class="filename">../man/index.php?id=<span class="important">ja_03</span></code>
+</div>
+<p>となっていると思います。このマニュアルファイルの実体は、</p>
+<p>「<code class="filename">contents</code>」フォルダにある「<code class="filename">ja_03.html</code>」というテキストファイル</p>
+<p>です。つまり、拡張子「.txt」や「.inc」、「.inc.php」を除いたファイル名の部分がパラメータとなって、idで呼ばれるようになっています。</p>
+<p>手始めに、適当なテキストファイルに適当な文字、あるいは簡単にXHTMLタグを使ってマークアップした文書を書いてみて下さい。コンテンツ部分だけを記述するので、コーディングの際はヘッダ部分やフッタ部分は必要ありません。コンテンツ部に使うタグのみで、例えば通常のHTMLでしたら</p>
+<div class="example">
+<pre>
+<code class="tag">&lt;h1&gt;</code>タイトル<code class="tag">&lt;/h1&gt;</code>
+<code class="tag">&lt;h2&gt;</code>サブタイトル<code class="tag">&lt;/h2&gt;</code>
+<code class="tag">&lt;p&gt;</code>コンテンツ。<code class="tag">&lt;br /&gt;</code>
+改行してまたコンテンツ。<code class="tag">&lt;/p&gt;</code>
+</pre>
+</div>
+<p>整形済みテキスト形式を使いたい場合は、</p>
+<div class="example">
+<pre>
+<code class="tag">&lt;pre&gt;</code>
+body{
+    color:#000000;
+    background:#ffffff;
+    font-size:12pt;
+}
+<code class="tag">&lt;/pre&gt;</code>
+</pre>
+</div>
+<p>等のような感じでシンプルにマークアップします。</p>
+<p>書き終わったら適当なファイル名をつけ、拡張子を「.html」にして「contents」フォルダに放り込んで下さい。そしてブラウザから</p>
+<div class="example">
+<code class="filename">..../var/index.php?id=<span class="important">あなたのつけたファイル名</span></code>
+</div>
+<p>と、拡張子部分を抜いたファイル名をidで指定してアクセスすれば、このP_BLOGのコンテンツ部分にあなたの書いた文書が表示されるはずです。当然、ファイル名を日付けで管理したい場合も同様に行えます。例えば「<code class="tag">20051115</code>」という日付けをファイル名にしたい場合、ファイル名に拡張子を加えた「<code class="filename">20051115.inc</code>」とし「<code class="filename">contents</code>」に配置、アドレスを</p>
+<div class="example">
+<code class="filename">..../var/index.php?id=<span class="important">20051115</span></code>
+</div>
+<p>と指定すればOKです。</p>
+<h3 class="important">.txtファイル使用上の注意</h3>
+<p>拡張子が「<code class="filename">.txt</code>」になっているテキストファイルは全て<code class="tag">&lt;pre&gt;</code>で括られ、整形済みテキストフォーマットとして扱われます(改行コードやスペースなどの表示がそのまま適用されます)。</p>
+</div>
+
+<div class="section" id="faq">
+<h2>F.A.Q</h2>
+<div class="section">
+<h3>Q1: 「VARS」ディレクトリ下にさらに「VARS」ディレクトリを作れますか?</h3>
+<div class="section">
+<h4>A1: 簡単に作れます。</h4>
+<p>「VARS」を拡張してコンテンツ別に分けてディレクトリを作って整理したり、親ディレクトリの下にさらに子ディレクトリを作りたい場合、以下のようにします。</p>
+<ol>
+<li>「<code class="filename">/vars-sample/</code>」というサンプルディレクトリが「<code class="filename">/var/</code>」ディレクトリに入っていますので、複製します。</li>
+<li>「<code class="filename">/vars-sample/index.php</code>」をテキストエディタで開き、「USER CONFIG」部分を編集し、ホームディレクトリからの階層レベルや、付けたいタイトル、ディレクトリ名などを記述します。</li>
+<li>以上です。</li>
+</ol>
+</div>
+</div>
+</div>

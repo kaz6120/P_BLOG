@@ -1,0 +1,378 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+                      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+<head>
+<title>P_BLOG Structure Chart</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta http-equiv="content-style-type" content="text/css" />
+<style type="text/css">
+body {
+    font-size: small;
+}
+h1 {
+    font-family: Optima, Lucida Grande, sans-serif;
+    padding: 0.2em 0.5em 0.2em 0.5em;
+    border: 1px solid #666666;
+    border-left: 5px solid #666666;
+    border-right: 5px solid #666666;
+    color: #000000;
+    background-color: #eeeeee;
+}
+h2 {
+    font-family: Optima, "Hiragino Kaku Gothic Pro W3", sans-serif;
+    color: #000000;
+    background-color: transparent;
+}
+h3.class-structure {
+    font-family: Lucida Grande, Trebuchet MS, Verdana, Arial, "Hiragino Kaku Gothic Pro W3", sans-serif;
+    color: #336600;
+    background-color: #ffffff;
+    border-top: 3px double #008000;
+    border-bottom: 3px double #008000;
+    padding: 0.3em;
+}
+.ja {
+    font-family: "Hiragino Maru Gothic Pro", "Hiragino Kaku Gothic", sans-serif; 
+    font-size: 90%;
+}
+.ja-m {
+    font-family: "Hiragino Maru Gothic Pro", "Hiragino Kaku Gothic", sans-serif;
+    font-size: 80%;
+}
+.note {
+    font-family: Arial, sans-serif;
+    color: #336600;
+    background-color: transparent;
+}
+.attr {
+    font-family: Arial, sans-serif;
+    color: #800040;
+    background-color: transparent;
+    font-weight: bold;
+    padding: 0.1em;
+}
+.class-id {
+    font-family: Arial, sans-serif;
+    color: #0000ff;
+    background-color: transparent;
+    padding: 0.1em;
+}
+ul.block li {
+    list-style: none;
+    border: silver 1px solid;
+    padding: 0.3em;
+    margin: 0.3em 2em 0.3em auto;
+}
+ul.block li.div-box {
+    background: #eeeeee;
+}
+ul.block li.level-1 {
+    background: #f5dfdf;
+}
+ul.block li.level-2 {
+    background-color: #ffffde;
+}
+ul.block li.level-3 {
+    background-color: #F2F1E6;
+}
+ul.block li.level-4 {
+    background-color: #E6E1EB;
+}
+ul.block li.level-5 {
+    background-color: #D9E3CF;
+}
+ul.block li.level-6 {
+    background-color: #ffffff;
+}
+ul.block li.comment {
+    background-color: transparent;
+    border: none;
+}
+p {
+    padding-left: 2em;
+}
+#author-info {
+    font-family: Times, serif;
+    font-size: 100%;
+    line-height: 1.8em;
+    padding-left: 1em;
+}
+</style>
+<link rev="made" href="mailto:webmaster@anti-spam.example.com" />
+<link rel="start" href="../index.php" />
+</head>
+<body>
+
+<h1>P_BLOG XHTML &amp; CSS Base Structure Chart<br /><span class="ja-m">(P_BLOGのXHTMLとCSS基本構造早見表)</span></h1>
+<h2>Version 1.0RC1</h2>
+<!-- 
+================================================================================= 
+HEADER
+================================================================================= 
+-->
+<ul class="block">
+
+ <li class="div-box"><span class="attr">div</span>#<span class="class-id">wrapper</span>
+ 
+     <h3 class="class-structure">Header Box<br /><span class="ja">(ヘッダー部)</span></h3>
+
+  <ul>
+   <li class="level-1">    
+   <span class="attr">div</span>#<span class="class-id">header</span>
+    <ul>
+     <!-- ================================================================================= -->
+     <li class="comment"><span class="note">/* Main title<span class="ja"> (メインタイトル)</span> &darr; */</span></li>
+     <li class="level-2"><span class="attr">h1</span>
+      <ul>
+       <li class="level-3"><span class="attr">a</span>.<span class="class-id">title</span></li>
+      </ul>
+     </li>
+     <!-- ================================================================================= -->
+     <li class="comment"><span class="note">/* Sub title<span class="ja"> (サブタイトル)</span> &darr; */</span></li>
+     <li class="level-2"><span class="attr">span</span>#<span class="class-id">subtitle</span></li>
+    </ul>
+   </li>
+  </ul>
+
+
+<!-- 
+================================================================================= 
+CONTENTS
+================================================================================= 
+-->
+  <h3 class="class-structure">Content Box <br /><span class="ja">(コンテンツ部)</span></h3>
+
+  <ul>
+   <li class="level-1">
+    <span class="attr">div</span>#<span class="class-id">content</span>
+    <ul>
+     <!-- ================================================================================= -->
+     <li class="comment">
+     <span class="note"> /* Archives, Categories, Search Results.<br />
+     <span class="ja">(過去ログ・カテゴリ・検索結果の場合)</span> &darr; */</span></li>
+     <li class="level-2"><span class="attr">div</span>.<span class="class-id">section</span>
+      <ul>
+       <li class="level-3"><span class="attr">h2</span>.<span class="class-id">archive-title</span></li>
+       <li class="level-3"><span class="attr">p</span>.<span class="class-id">search-res</span>
+        <ul>
+         <li class="level-4"><span class="attr">span</span>.<span class="class-id">search-res</span></li>
+        </ul>
+       </li>
+       <li class="level-3"><span class="attr">form</span>
+        <ul>
+         <li class="level-4"><span class="attr">div</span>.<span class="class-id">flip-form</span></li>
+        </ul>
+       </li>
+      </ul>
+     </li>
+     <!-- ================================================================================= -->
+     <li class="comment">
+     <span class="note">/*Articles<br /><span class="ja">(各記事部)</span> &darr; */</span></li>
+     <li class="level-2"><span class="attr">div</span>.<span class="class-id">section</span>
+      <ul>
+       <li class="level-3"><span class="attr">h2</span>.<span class="class-id">date-title</span></li>
+       <li class="level-3"><span class="attr">div</span>.<span class="class-id">section</span>
+        <ul>
+         <li class="level-4"><span class="attr">h3</span>.<span class="class-id">article-title</span>
+          <ul>
+           <li class="level-5"><span class="attr">a</span>.<span class="class-id">anchor</span></li>
+          </ul>
+         </li>
+         <li class="level-4"><span class="attr">div</span>.<span class="class-id">date</span></li>
+         <li class="level-4"><span class="attr">div</span>.<span class="class-id">comment</span>
+         <br />
+         <p>
+         <span class="note">/*Your Posted Comment Goes Here.<br />
+         <span class="ja">(ポストされたコメントはここに入ります)</span>
+         */</span></p>
+         </li>
+         <li class="level-4"><span class="attr">div</span>.<span class="class-id">a-footer</span></li>
+        </ul>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </li>
+  </ul>
+
+<!-- 
+================================================================================= 
+MENU
+================================================================================= 
+-->
+  <h3 class="class-structure">Menu Box <br /><span class="ja">(メニュー部)</span></h3>
+  <ul>
+   <li class="level-1"><span class="attr">div</span>#<span class="class-id">menu-box</span>
+    <ul>
+     <!-- ================================================================================= -->
+     <li class="comment"><span class="note">/* Contents menu<span class="ja"> (コンテンツメニュー)</span> &darr; */</span></li>
+     <li class="level-2"><span class="attr">ul</span>.<span class="class-id">menu</span>
+       <ul>
+        <li class="level-3"><span class="attr">li</span>.<span class="class-id">menu</span></li>
+        <li class="level-3"><span class="attr">li</span>.<span class="class-id">cur-menu</span></li>
+       </ul>
+     </li>
+     <!-- ================================================================================= -->
+     <!-- ================================================================================= -->
+     <li class="comment"><span class="note">/* Search form<span class="ja"> (検索フォーム)</span> &darr; */</span></li>
+     <li class="level-2"><span class="attr">div.menu</span>
+      <ul>
+       <li class="level-3"><span class="attr">h2</span>
+        <ul>
+         <li class="comment"><span class="note">/* Keyword input form <span class="ja">(キーワード入力フォーム)</span> &darr; */</span></li>
+         <li class="level-4"><span class="attr">input</span></li>
+         <li class="level-4"><span class="attr">input</span>#<span class="class-id">search-button</span></li>
+         <li class="comment"><span class="note">/* Anchor to the advanced search <span class="ja">(詳細検索へのアンカー)</span> &darr; */</span></li>
+         <li class="level-4"><span class="attr">span</span>#<span class="class-id">search-plus</span>
+          <ul>
+           <li class="level-5"><span class="attr">a</span></li>
+          </ul>
+         </li>   
+        </ul>
+       </li>
+      </ul>
+     </li>
+     <li class="comment">
+     <span class="note">/* Archives Form<br />
+     <span class="ja">(過去ログフォームを表示する場合)</span> &darr; */</span></li>
+     <li class="level-2"><span class="attr">form</span>#<span class="id">archives</span>
+      <ul>
+       <li class="level-3">
+       <span class="attr">div</span>
+         <ul>
+          <li class="level-4"><span class="attr">input</span></li>
+          <li class="level-4"><span class="attr">select</span></li>
+          <li class="level-4"><span class="attr">noscript</span>
+            <ul>
+              <li class="level-5"><span class="attr">div</span>
+                <ul>
+                  <li class="level-6"><span class="attr">input</span></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+         </ul>
+       </li>
+      </ul>
+     </li>
+     <!-- ================================================================================= -->
+     <li class="comment">
+     <span class="note">/* Category &amp; File-Type Select Form<br />
+     <span class="ja">(カテゴリorファイルタイプをセレクトフォームで表示する場合)</span> &darr; */</span></li>
+     <li class="level-2"><span class="attr">form</span>#<span class="id">category</span>
+      <ul>
+       <li class="level-3"><span class="attr">div</span>
+        <ul>
+         <li class="level-4"><span class="attr">select</span></li>
+         <li class="level-4"><span class="attr">noscript</span>
+          <ul>
+           <li class="level-5"><span class="attr">div</span>
+            <ul>
+             <li class="level-6"><span class="attr">input</span></li>
+            </ul>
+           </li>
+          </ul>
+         </li>
+        </ul>
+       </li>
+      </ul>
+     </li>
+     <!-- ================================================================================= -->
+     <li class="comment">
+     <span class="note">/* Recent Trackbacks, Recent Comment List &amp; Custom User Menu<br />
+     <span class="ja">(最近のトラックバック・コメントのリスト表示及びユーザー定義メニュー)</span> &darr; */</span></li>
+     <li class="level-2"><span class="attr">div</span>.<span class="class-id">menu</span>
+      <ul>
+       <li class="level-3"><span class="attr">h2</span></li>
+       <li class="level-3"><span class="attr">p</span></li>
+       <li class="level-3"><span class="attr">ul</span>
+        <ul>
+         <li class="level-4"><span class="attr">li</span></li>
+        </ul>
+       </li>
+      </ul>
+     </li>
+     <!-- ================================================================================= -->
+     <li class="comment">
+     <span class="note">/* CSS Switcher <br /><span class="ja">(CSS切り替えフォーム)</span> &darr; */</span></li>
+     <li class="level-2"><span class="attr">form</span>#<span class="id">css-form</span>
+      <ul>
+       <li class="level-3"><span class="attr">div</span>
+        <ul>
+         <li class="level-4"><span class="attr">select</span></li>
+         <li class="level-4"><span class="attr">noscript</span>
+          <ul>
+           <li class="level-5"><span class="attr">div</span>
+            <ul>
+             <li class="level-6"><span class="attr">input</span></li>
+            </ul>
+           </li>
+          </ul>
+         </li>
+        </ul>
+       </li>
+      </ul>
+     </li>
+     <!-- ================================================================================= -->
+     <li class="comment">
+     <span class="note">/* RSS Feed Logo <br /><span class="ja">(RSSロゴ)</span> &darr; */</span></li>
+     <li class="level-2"><span class="attr">a</span>
+      <ul>
+       <li class="level-3"><span class="attr">img</span>.<span class="class-id">logo</span></li>
+      </ul>
+     </li>
+    </ul>
+   </li>
+  </ul>
+
+<!-- 
+================================================================================= 
+FOOTER
+================================================================================= 
+-->
+  <h3 class="class-structure">Footer Box <br /><span class="ja">(フッター部)</span></h3>
+  <ul class="div-box">
+   <li class="level-1"><span class="attr">div</span>#<span class="class-id">footer</span>
+     <!-- ================================================================================= -->
+     <ul>
+       <li class="comment">
+       <span class="note">/*Default Logo<br /><span class="ja">(デフォルトロゴ)</span> &darr; */</span></li>
+       <li class="level-2"><span class="attr">a</span>
+        <ul>
+         <li class="level-3"><span class="attr">img</span>.<span class="class-id">logo</span></li>
+        </ul>
+       </li>
+       <!-- ================================================================================= -->
+       <li class="comment">
+       <span class="note">/* W3C Validators<br /><span class="ja">(W3C構文チェッカー付き)</span> &darr; */</span></li>
+       <li class="level-2"><span class="attr">div</span>#<span class="class-id">validators</span>
+        <ul>
+         <li class="level-3"><span class="attr">a</span>
+          <ul>
+           <li class="level-4"><span class="attr">img</span>.<span class="class-id">validator</span></li>
+          </ul>
+         </li>
+        </ul>
+       </li>
+       <!-- ================================================================================= -->
+       <li class="comment">
+       <span class="note">/* Your Copyright Goes Here. <br /><span class="ja">(コピーライトなどはここに入ります)</span> */</span></li>
+       <!-- ================================================================================= -->
+       <li class="comment">
+       <span class="note">/* Page Generation Time<br /><span class="ja">(ページ生成時間)</span> &darr; */</span></li>
+       <li class="level-2"><span class="attr">div</span>#<span class="class-id">page-generation</span>
+       </li>
+     </ul>
+   </li>
+  </ul>
+ </li><!-- End #div-box -->
+</ul>
+
+<hr />
+
+<address>
+Last Modified: $Date: 2004/08/16 14:24:53 <br />
+Copyright &copy; 2003-2004. P_BLOG Proj. All Rights Reserved.</address>
+</body>
+</html>

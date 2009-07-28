@@ -1,0 +1,27 @@
+<?php
+
+// CSS List
+$styles = array(
+
+'Sunlit Trees' => 'sunlit_trees',
+'Silk'       => 'silk',
+'Alminum'    => 'alminum',
+'Rich Green' => 'rich_green'
+
+);
+
+// User's Comment Type Class Definition
+$comment_class = array(
+
+'opinion'  => 'Opinion',
+'info'     => 'Give Info',
+'question' => 'Question',
+
+);
+
+// RSS Logo
+$rss_feed   = 'RSS 1.0';
+$rss_feed2  = 'RSS 2.0';
+
+
+?>

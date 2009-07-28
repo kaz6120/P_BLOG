@@ -1,0 +1,122 @@
+<ul class="flip-menu">
+<li><a href="./index.php" accesskey="m">P_BLOG Manual</a></li>
+<li><a href="./index.php?id=en_00" accesskey="i">Index</a></li>
+<li><span class="cur-tab">HOW TO SETUP</span></li>
+</ul>
+<!-- Begin .section h2 -->
+<div class="section" id="toc">
+<h2>HOW TO SETUP</h2>
+<ul>
+<li><a href="./index.php?id=en_01#install">INSTALL</a></li>
+<li><a href="./index.php?id=en_01#forum_and_comment">Forum &amp; Comment System</a></li>
+<li><a href="./index.php?id=en_01#file_not_found">Setting custom &quot;404 File Not Found&quot;</a></li>
+</ul>
+</div>
+
+<div class="section" id="install">
+<h2>INSTALL</h2>
+<!-- (STEP-1) -->
+<div class="section">
+<h3><img src="./contents/resources/step1.png" width="37" height="37" alt="STEP-1" /> Check your environment and upload</h3>
+<p>Make sure that "PHP4.2.x or later (ver.4.3.x are recommended)" 
+and "MySQL-3.23.x〜4.x" are installed on your server machine or on your system (for local use).</p>
+<p>If your environment looks OK, then upload all files to your directory of your server where you want to set P_BLOG.</p>
+</div>
+
+<!-- (STEP-2) -->
+<div class="section">
+<h3><img src="./contents/resources/step2.png" width="37" height="37" alt="STEP-2" /> Configure "include/user_config.inc.php"</h3>
+<p>To make MySQL connection work, you should rewrite
+<em>AT LEAST</em>  2 lines shown below.
+</p>
+<div class="command">
+<p><var>$user</var> = '<span class="important">mysql-user</span>';</p>
+<p><var>$password</var> = '<span class="important">mysql-user</span>';</p>
+</div>
+<p>You can configure this file with the installer automatically or can edit "<code class="filename">/include/user_config.inc.php</code>" file with your favorite Text Editor manually. If you want to configure it with installer, just access to "STEP-1" of "P_BLOG SETUP". If you want to edit it by hand, please use the Editor that can handle UTF-8. </p>
+</div>
+
+<!-- (STEP-3) -->
+<div class="section">
+<h3><img src="./contents/resources/step3.png" width="37" height="37" alt="STEP-3" /> Change "<code class="filename">/resource</code>" and "<code class="filename">/include/user_include/</code>" permissions to "777".</h3>
+<p>Change permission of the directories show below to "777"</p>
+<div class="command">
+<ul>
+<li><code class="filename">/resources/</code></li>
+<li><code class="filename">/include/user_include/</code></li>
+</ul>
+</div>
+<p>
+<code class="filename">/resources/</code> directory is the place where to stock images and files
+you want to upload with each logs. Don't forget to change the permission
+of this directory to enable uploading files. "<code class="filename">/include/user_include/</code>" directory is the place to stock user custom footer file, additional menu files, and so on.
+</p>
+<h4>For local use</h4>
+<p>If you want to use P_BLOG on your local machine, use Terminal application to change the permission of <code class="filename">/resources/</code> directory. Try:
+</p>
+<div class="command">
+% chmod 777 resources
+</div>
+<p>and then check it with </p>
+<div class="command">
+% ls -al resources
+</div>
+<p>to see if the permission has been changed.</p>
+</div>
+
+<!-- (STEP-4) -->
+<div class="section"><h3><img src="./contents/resources/step4.png" width="37" height="37" alt="STEP-4" /> Install MySQL Tables</h3>
+<h4>To install or upgrade, <span class="important">go to &quot;/SETUP/&quot;</span> directory and follow the instructions.</h4>
+<p>After installation, I recommend to remove SETUP folder(directory) from your
+server for some security reasons.
+</p>
+</div>
+
+<div class="section">
+<h3><img src="./contents/resources/step5.png" width="37" height="37" alt="STEP-5" />  Create Your Admin User Account</h3>
+<p>Go to the Admin page (<code class="filename">&quot;/admin/login.php&quot;</code>) and click <span class="important">&quot;ACCOUNT MANAGE LOGIN&quot;</span> button. You will see the &quot;ACCOUNT MANAGER&quot; login page, type your MySQL user name and password you set in <code class="filename">/include/user_config.inc.php</code> file.</p>
+<p>If you successfully authorized, create a new user account. Using this user account, you can post, edit, delete the articles, so please remember the password. (If your server supports sandmail you can send ID info to the registerd Email for reminder.)</p>
+</div>
+
+<div class="section">
+<h3><img src="./contents/resources/step6.png" width="37" height="37" alt="STEP-6" /> THAT'S IT!</h3>
+<p>
+Okay, you are through completely (I hope). Now, Click <span class="important">&quot;LOG OUT&quot;</span> and then click <span class="important">&quot;ADMIN MODE&quot;</span> in the menu bar to go back to the admin page.  Enter the new user account and password that you have created with your Account Manager.</p>
+<p>If your log-in is success, <span class="important">please set your preferences first</span> before you go.</p>
+<p>Have fun!</p>
+</div>
+</div>
+
+<div class="section" id="forum_and_comment">
+<h2>Forum &amp; Comment System</h2>
+<p>There are 3 ways to use P_BLOG's Hybrid Forum System.</p>
+<h3>(1) Forum Style</h3>
+<p>You can use it as the stand-alone Forum sytem or Forum with link to the articles. If you choose this style "Forum" menu will appear in the content menu list automatically. You can off the "Post Comment" link of each article footer in "Preferences", if you want.</p>
+<h3>(2) Comment Style.</h3>
+<p>This is standard "Weblog Comment Style". If you choose this style "Forum" menu won't show in the content menu.</p>
+</div>
+
+<div class="section" id="file_not_found">
+<h2>Setting custom &quot;404 File Not Found&quot;</h2>
+<p>You can display your original &quot;404 File Not Found&quot;.</p>
+<ol>
+<li><p>Open <span class="important">&quot;_dot_htaccess&quot;</span> file in your P_BLOG's home directory with your favorite text editor and find the line :</p>
+<div class="command">
+<code>
+<span class="important">#</span> ErrorDocument 404 http://<span class="important">www.example.com/your/p_blog</span>/var/index.php?id=error404
+</code>
+</div>
+</li>
+<li>
+<p>Delete <span class="important">&quot;#&quot;</span>, and edit like this.</p>
+<div class="example">
+<code>
+ErrorDocument 404 http://<span class="red">your/path/to/p_blog</span>/var/index.php?id=error404
+</code>
+</div>
+</li>
+<li>Lastly, save the changes and rename <code class="filename">&quot;_dot_htaccess&quot;</code> to <code class="filename">&quot;<span class="important">.htaccess</span>&quot;</code>.</li>
+</ol>
+<p>... Done!  Hit URI which doesn't exist and see if it works.</p>
+<p>Custom messages are in 「<code class="filename">/var/contents/</code>」. You can use custom &quot;401&quot; and &quot;403&quot; as well.</p>
+</div>

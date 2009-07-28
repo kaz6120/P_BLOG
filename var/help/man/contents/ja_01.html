@@ -1,0 +1,156 @@
+<ul class="flip-menu">
+<li><a href="./index.php" accesskey="m">P_BLOG マニュアル</a></li>
+<li><a href="./index.php?id=ja_00" accesskey="i">索引</a></li>
+<li><span class="cur-tab">セットアップの方法</span></li>
+</ul>
+
+<div class="section" id="toc">
+<h2 id="manual-title">セットアップの方法</h2>
+<ul>
+<li><a href="./index.php?id=ja_01#install">インストール</a></li>
+<li><a href="./index.php?id=ja_01#forum_and_comment">フォーラム &amp; コメント機能の設定</a></li>
+<li><a href="./index.php?id=ja_01#file_not_found">カスタム「404 File Not Found」の設定</a></li>
+</ul>
+</div>
+  
+<!-- Begin .section h2 -->
+<div class="section" id="install">
+<h2>インストール</h2>
+
+<!-- Begin .section h3 -->
+<div class="section">
+<h3><img src="./contents/resources/step1.png" width="37" height="37" alt="STEP-1" /> 環境のチェック</h3>
+<p>使用環境に「PHP4.2.x〜(4.3以降推奨)」と「MySQL-3.23.x〜4.x」がインストールされていることを確認して下さい。</p>
+</div>
+<!-- End .section h3 -->
+
+<!-- Begin .section h3 -->
+<div class="section">
+<h3><img src="./contents/resources/step2.png" width="37" height="37" alt="STEP-2" />「<code class="filename">include/user_config.inc.php</code>」の設定</h3>
+<p>
+P_BLOGを稼働させるためには、まず<em>最低でも</em>以下の2行は書き換えが必要です。
+</p>
+<p class="example">
+<code>
+<var>$user</var> = '<span class="important">あなたのMySQLユーザー名を書いて下さい</span>';<br />
+<var>$password</var> = '<span class="important">あなたのMySQLパスワードを書いて下さい</span>';
+</code>
+</p>
+<p>このMySQLユーザー名とパスワードの設定を行うにはインストーラを実行するか、「<code class="filename">include/user_config.inc.php</code>」をテキストエディタで直接編集して下さい。P_BLOGのファイルは全て</p>
+<ul>
+<li>文字コード ：UTF-8</li>
+<li>改行コード：LF (Unix形式)</li>
+</ul>
+<p>で保存されていますので、編集にはUTF-8が扱えるテキストエディタをご使用下さい。</p>
+<div class="section important">
+<h4 class="important">＊注意：レンタルサーバーでDB名が決められている場合＊</h4>
+<p>レンタルサーバーなどでDB名があらかじめ決められている場合は、以下の部分を<span class="important">必ず</span>書き換えて下さい。</p>
+<div class="command">
+<var>$dbname</var> = '<span class="important">あなたのサーバーの割り当てDB名</span>';
+</div>
+</div>
+</div>
+<!-- End .section h3 -->
+
+<!-- Begin .section h3 -->
+<div class="section">
+<h3><img src="./contents/resources/step3.png" width="37" height="37" alt="STEP-3" />「<code class="filename">resources</code>」と「<code class="filename">include/user_include</code>」ディレクトリのパーミッション</h3>
+<p>以下の2つのディレクトリを読み書きアクセスが出来るようにFTPソフトなどでパーミッションを「777」に設定しておきます。</p>
+<div class="command">
+<ul>
+<li><code class="filename">resources</code></li>
+<li><code class="filename">include/user_include</code></li>
+</ul>
+</div>
+<p>
+「<code class="filename">resources</code>」ディレクトリは、ログと一緒にデータベース以外の場所に画像などの
+ファイルをアップロードしたいときに使うデータストックするディレクトリです。「<code class="filename">include/user_include</code>」は、追加メニューやカスタムフッターなどのユーザーカスタムファイルを保存するディレクトリです。
+</p>
+<h4>ローカル(自分のマシン)で使用する場合</h4>
+<p>ローカルで使う場合は、Terminalなどのコマンドが使えるソフトで「<code class="filename">resources</code>」フォルダのある階層に移動し、
+</p>
+<div class="command">
+% chmod 777 resources
+</div>
+<p>を実行して下さい。</p>
+</div>
+<!-- End .section h3 -->
+
+<!-- Begin .section h3 -->
+<div class="section">
+<h3><img src="./contents/resources/step4.png" width="37" height="37" alt="STEP-4" />インストールとアップグレード</h3>
+<h4>ブラウザで「<code class="filename">SETUP</code>」ディレクトリに移動し、インストールウィザードに従ってインストールまたはアップブレードを行って下さい。</h4>
+<p>インストールが終了したらインストールやアップデートスクリプトファイル等は「<code class="filename">SETUP</code>」フォルダごと
+サーバーから削除することを<span class="important">強く</span>お薦めします。
+</p>
+</div>
+<!-- End .section h3 -->
+
+<!-- Begin .section h3 -->
+<div class="section">
+<h3><img src="./contents/resources/step5.png" width="37" height="37" alt="STEP-5" />　ユーザーアカウントの作成</h3>
+<p>管理者ページの「<code class="filename">login.php</code> 」(デフォルトは<code class="filename">「/admin/login.php」</code>)　にアクセスし、ページ下の「新規ユーザーを作成」をクリックします。すると、アカウントマネージャーへのログイン画面が出ますので、<code class="filename">/include/user_config.inc.php</code>ファイルで設定したユーザー名とパスワードを入力します。</p>
+<p>ログインが成功したら、新規ユーザーの名前とパスワード、メールアドレスを打ち込み、アカウントを作成して下さい。ここで作成したユーザーが、「P_BLOGで記事のポスト・更新・削除が出来るユーザー」となります。ユーザーアカウントは999個まで登録可能です。パスワードはMD5ハッシュ化されて見れなくなりますので、忘れないようにして下さい。</p>
+<p>また、<code class="filename">user_config.inc.php</code>でメール送信機能をON(デフォルトはOFF)にしてある場合はリマンダーとして登録したアドレスにIDとパスワードが送信されます。(忘れた場合・間違って登録してしまった場合・リマインダーメールを紛失した場合にはMySQLユーザーアカウントでログイン後にパスワードを再度設定して下さい。)</p>
+</div>
+<!-- End .section h3 -->
+
+<!-- Begin .section h3 -->
+<div class="section">
+<h3><img src="./contents/resources/step6.png" width="37" height="37" alt="STEP-6" />　終了!</h3>
+<p>
+以上で基本設定は完了です。「ログアウト」をクリックししてルート管理モード(MySQLユーザーモード)からログアウトし、「サイト管理」をクリックして管理ページに進み、先ほど作成した管理者アカウントとパスワードを使ってログインしてみて下さい。ログインが成功したら、<span class="important">まず最初に「環境設定」を開き、各項目をセッティングして下さい。</span>
+</p>
+<p>上手く稼働設定が完了出来たらP_BLOGをお楽しみ下さい。</p>
+</div><!-- End .section h3 -->
+</div><!-- End .section h2 -->
+
+<!-- Begin .section h2 -->
+<div class="section" id="forum_and_comment">
+<h2>フォーラム+コメント機能の設定</h2>
+<p>P_BLOGのフォーラム機能はフォーラム型掲示板と記事へのコメントシステムを組み合わせた「ハイブリッドフォーラム」で、通常のコメントシステムとしても、ディスカッションフォーラムとしても使用出来ます。設定の切り替えは管理モードの環境設定で簡単に切り替える事が出来ます。</p>
+
+<!-- Begin .section h3 -->
+<div class="section">
+<h3>(1)フォーラムスタイル</h3>
+<p>本文記事と連動したフォーラム型掲示板です。通常のコメント機能のように本文記事へのコメントをポスト出来、自動的に本文記事へのリンクがつきますが、スレッド型フォーラムとして稼働します。もちろん、本文記事への言及以外の、単独でのスレッドの作成も可能です。このスタイルの場合各記事につくコメントリンクを非表示にすることで独立したフォーラム機能としてのみ使用する事も出来ます。</p>
+<p>このスタイルを選択すると、コンテンツメニューに「フォーラム」というメニューが自動的に表示されます。この「フォーラム」という名前は言語を切り替えると変化するようになっていますので、変更したい場合は「<code class="filename">lang</code>」ディレクトリにあるローカライズ文字列ファイルを編集して下さい。</p>
+</div>
+<!-- End .section h3 -->
+
+<!-- Begin .section h3 -->
+<div class="section">
+<h3>(2)コメントスタイル</h3>
+<p>各本文記事にコメントがつく一般的なWeblogコメント機能スタイルです。このスタイルを選択すると、コンテンツメニューから「フォーラム」の項目は自動的に消えるようになっています。</p>
+</div>
+<!-- End .section h3 -->
+</div>
+<!-- End .section h2 -->
+
+<!-- Begin .section h2 -->
+<div class="section" id="file_not_found">
+<h2>カスタム「404 File Not Found」の設定</h2>
+<p>P_BLOGではユーザーが存在しないページをリクエストした場合にオリジナルの「404 File Not Found」を表示するように設定することが出来ます。</p>
+<ol>
+<li><p>あなたのP_BLOGのホームディレクトリにある「<code class="filename">_dot_htaccess</code>」という名前のファイルをテキストエディタで開きます。</p></li>
+<li>
+<div class="example">
+<code>
+<span class="important">#</span> ErrorDocument 404 http://<span class="important">www.example.com/your/p_blog</span>/<br />
+var/index.php?id=error404
+</code>
+</div>
+<p>という箇所の<span class="important">「#」</span>をコメントアウトし、以下のように書き換えます。</p>
+<div class="example">
+<code>
+ErrorDocument 404 http://<span class="important">あなたのP_BLOGへのパス</span>/<br />
+var/index.php?id=error404
+</code>
+</div>
+</li>
+<li>最後に、「<code class="filename">_dot_htaccess</code>」のファイル名を「<code class="filename"><span class="important">.htaccess</span></code>」と変更し、保存します。</li>
+</ol>
+<p>以上で設定は終了です。試しに存在しないページのURIをリクエストしてみて下さい。カスタムのエラーメッセージが上手く表示されれば成功です。</p>
+<p>カスタムメッセージの本体は「<code class="filename">var/contents/</code>」に入っています。他に「401」、「403」のエラーメッセージがありますので有効にするには同じように設定して下さい。</p>
+</div>
+<!-- End .section h2 -->

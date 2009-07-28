@@ -1,0 +1,50 @@
+# ========================================================
+# P_BLOG htaccess file
+# $Id: .htaccess, 2005/03/16 00:37:58 Exp $
+# --------------------------------------------------------
+# NOTE:
+# please rename this "_dot_htaccess" file to ".htaccess"
+# ========================================================
+#
+# ===========================
+# Don't list up files
+# ===========================
+# Options -Indexes
+
+# ===========================
+# P_BLOG's custom error pages
+# ===========================
+# ErrorDocument 401 http://www.example.com/your/p_blog/var/index.php?id=error401
+# ErrorDocument 403 http://www.example.com/your/p_blog/var/index.php?id=error403
+# ErrorDocument 404 http://www.example.com/your/p_blog/var/index.php?id=error404
+
+# ===========================
+# Deny Access
+# ===========================
+# order allow, deny
+# allow from all
+# deny from i-hate-this.example.com
+# deny from xxx.xxx.xxx.xxx
+
+
+# ===========================
+# User Auth
+# ===========================
+# <Files admin/index.php>
+# AuthName P_BLOG
+# AuthType Basic
+# # AuthUserFile /full/path/to/your_secret_directory/.htpasswd
+# require valid-user
+# </Files>
+
+
+# ===========================
+# Anti Spam
+# ===========================
+<Files ~ "(added|replied|modified|delete)\.php$">
+SetEnvIf Referer "^http://www\.example\.org" ref_ok
+order deny,allow
+deny from all
+allow from env=ref_ok
+</Files>
+

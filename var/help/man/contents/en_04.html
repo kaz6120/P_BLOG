@@ -1,0 +1,77 @@
+<ul class="flip-menu">
+<li><a href="./index.php" accesskey="m">P_BLOG Manual</a></li>
+<li><a href="./index.php?id=en_00" accesskey="i">Index</a></li>
+<li><span class="cur-tab">CUSTOMIZING XHTML</span></li>
+</ul>
+<!-- Begin .section h2 -->
+<div class="section" id="toc">
+<h2>CUSTOMIZING XHTML</h2>
+<ul>
+<li><a href="./index.php?id=en_04#editing">What You Can Do From Your Browser</a></li>
+<li><a href="./index.php?id=en_04#customizing-xhtml-in-functions">XHTML CODES &amp; Functions ARE IN <code class="filename">fnc_*.inc.php</code></a></li>
+<li><a href="./index.php?id=en_04#notice-when-customize">NOTICE</a></li>
+<li><a href="./index.php?id=en_04#xhtml-structure-of-p_blog">P_BLOG XHTML Structure</a></li>
+</ul>
+</div>
+
+<div class="section" id="editing">
+<h2>What You Can Do From Your Browser</h2>
+<p>You can edit XHTML parts shown below.</p>
+<dl>
+<dt>(1)　Content Top</dt>
+<dd>You can add tags in the top of the content box.</dd>
+<dt>(2)　Menu</dt>
+<dd>You can edit the content menu items.</dd>
+<dt>(3)　Menu Middle</dt>
+<dd>You can add additional menu or something under the content menu list.</dd>
+<dt>(4)　CSS &amp; RSS</dt>
+<dd>You can add styles to CSS switch and can edit the title of "RSS"</dd>
+<dt>(5)　Menu Bottom</dt>
+<dd>You can add more menu in the bottom of ther menu box.</dd>
+<dt>(6) User Custom Footer</dt>
+<dd>If you choose "User Custom Footer" in the preferences page, you can add its content with editing this.</dd>
+<dt>(7) Base XHTML</dt>
+<dd>This is the base XHTML which is used in all pages of P_BLOG. "<code>{<var>$variable</var>}</code>" are the parts which the result of PHP will be desplayed in.</dd>
+</dl>
+<h3>OK, Where are the files?</h3>
+<p>They are all in <code class="filename">/include/user_include</code>.</p>
+<div class="example">
+<p>
+<code>&quot;<span class="important">menu_bottom</span>.inc.txt-sample&quot; =&gt; &quot;<span class="important">Botton of the menu</span>&quot;</code>
+</p>
+</div>
+
+<h3>Where's the default files?</h3>
+<p>These are all in "<code class="filename">/include/user_include/_default_backup/</code>".</p>
+</div>
+
+<div class="section" id="customizing-xhtml-in-functions">
+<h2>XHTML CODES &amp; Functions ARE IN <code class="filename">fnc_*.inc.php</code></h2>
+<p>Other XHTML parts are functionalized and organized in <code class="filename">fnc_*.inc.php</code>, so please refer to it when you need to.</p>
+</div>
+
+<div class="section">
+<h3>Hints:</h3>
+<p>Here's a coding style example:</p>
+<div class="example">
+<pre>echo&nbsp;&lt;&lt;&lt;<span class="important">EOD</span>
+&lt;tag&gt;XHTML contents{<var>$PHP_VAR</var>}&lt;/tag&gt;
+&lt;tag&gt;XHTML contents{<var>$PHP_VAR</var>}&lt;/tag&gt;
+&lt;tag&gt;XHTML contents{<var>$PHP_VAR</var>}&lt;/tag&gt;
+<span class="important">EOD;</span>
+</pre>
+</div>
+<p>Here document ID is <span class="important">&quot;EOD&quot;</span>  (to make finding XHTML tags easier), and most of  the PHP variables used in functions are in curly blacket.</p>
+</div>
+
+<div class="section" id="notice-when-customize">
+<h2>NOTICE:</h2>
+<p class="important">Don't forget to backup before you cosutomize. </p>
+</div>
+
+<div class="section" id="xhtml-structure-of-p_blog">
+<h2 class="page-break-before">P_BLOG XHTML Structure</h2>
+<p>This is P_BLOG's base XHTML structure.</p>
+<p><img src="./contents/resources/xhtml_structure.png" width="458" height="631" alt="XHTML Structure" /></p>
+<p class="ref">See Also : <a href="./contents/xhtml_class_chart.html">P_BLOG XHTML Structure &amp; Classes</a></p>
+</div>

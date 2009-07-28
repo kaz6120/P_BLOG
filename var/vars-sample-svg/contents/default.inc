@@ -1,0 +1,1 @@
+<h2>SVG SAMPLE PAGE</h2><p><object data="./contents/resources/svg-example.php"         width="400"         height="300"         type="image/svg-xml"         standby="loading..." > <p>SVG Sample</p> <p><a href="http://www.adobe.com/svg/viewer/install/">Plug-In Download</a></p></object></p>

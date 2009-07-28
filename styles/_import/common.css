@@ -1,0 +1,893 @@
+@charset "utf-8";
+
+/*
+  ---------------------------------------------------------------
+  P_BLOG CSS TEMPLATE "Common"
+
+  $Id: 2006-06-04 23:38:25 Exp $
+  ---------------------------------------------------------------
+  INDEX
+     - HEADINGS
+     - FORMS
+     - TABLES
+     - PAGE NAVIGAGTION LINK
+     - CALENDAR TABLE
+     - WIDE CONTENT BOX
+     - ACCESS ANALYZER
+     - COMMENT / FORUM
+     - RSS BOX
+     - TRACKBACK
+     - ADMIN
+  ---------------------------------------------------------------
+*/
+
+/*
+-----------------------------------------------------------------
+    HEADINGS
+-----------------------------------------------------------------
+*/
+h1 {
+    text-shadow: #cccccc 0.2em 0.2em 0.2em;
+}
+.section h3 {
+    border-bottom: 1px dotted #999999;
+    text-shadow: #dddddd 0.2em 0.2em 0.2em;
+}
+.section p {
+    margin: 0.5em;
+}
+.section dl, .section ul, .section ol {
+    margin: 0.5em 1em 0.5em 1em;
+}
+
+/*
+-----------------------------------------------------------------
+    Table of Content
+-----------------------------------------------------------------
+*/
+#toc {
+    padding: 0.2em 1em 1em 1em;
+    border: 1px solid #cccccc;
+}
+#toc h2 {
+    padding: 0.3em 0 0.3em 0;
+    border-bottom: 1px solid #444444 !important;
+    color: #333333 !important;
+    font-family: "HiraKakuStd-W8", "HiraMaruPro-W4", Tahoma, Optima, Arial, sans-serif;
+    font-size: 140% !important;
+    text-shadow: #cccccc 0.2em 0.2em 0.2em;    
+}
+#toc ol {
+    padding-left: 2em;
+}
+#toc ul {
+    width: 100%;
+    padding-left: 1em;
+    list-style-image: url(../_shared/arrow_right.png);
+    margin: 5px 5px 5px 1.8em;
+    font-size: 102%;
+}
+
+/*
+-----------------------------------------------------------------
+    FORMS
+-----------------------------------------------------------------
+*/
+form dl {
+    margin: 0 1em 2em 1em;
+}
+form dd {
+    margin: 0 1em 0.5em 0;
+}
+form dt {
+    margin-right: 0.5em;
+}
+
+/* Submit Button */
+input.tagbutton {
+    width: 50px;
+    margin-bottom: 3px;
+    padding: 1px 10px 1px 10px;
+    border: 1px solid #999999;
+    background: #eeeeee url(../_shared/button_bg.png) repeat-x;
+    color: #000000;
+    font-family: Lucida Grande, sans-serif;
+    font-size: 90%;
+}
+
+.submit-button {
+    margin: 1.2em 0 1.2em 0 !important;
+    padding: 0.3em;
+    background: #eeeeee url(../_shared/gray_stripe.png);
+    border: 1px solid #cccccc; 
+    color: #000000;
+    text-align: center;
+}
+
+.submit-button input {
+    width: 8em;
+}
+
+
+#comment-form {
+    border-bottom: 0;
+}
+
+/*
+-----------------------------------------------------------------
+    TABLES
+-----------------------------------------------------------------
+*/
+table {
+    margin: 1em 0 1em 0;
+    width: 98%;
+    border-collapse: collapse;
+    border: 1px solid #999999;
+    color: #000000;
+    font-size: 100%;
+    line-height: 180%;
+}
+th {
+    padding: 0.3em 1em 0.3em 1em;
+    color: #333333;
+    background-color: #eeeeee;
+    border: 1px solid #999999;
+    background-image : url(../_shared/gray_stripe.png);
+}
+
+tbody th {
+    background-image : url(../_shared/gray_stripe_flat.png);
+}
+
+td {
+    padding: 0.3em 0.5em 0.3em 0.5em;
+    border: 1px solid #999999;
+    background-color: #ffffff;
+    color: #000000;
+    font-size: 100%;
+}
+
+td.person {
+    padding: 3px;
+    background-color: #666666;
+    color: #ffffff;
+}
+
+tfoot {
+    text-align: center;
+    padding: 0.7em;
+    color: #000000;
+    background: #eeeeee url(../_shared/gray_stripe.png);
+    border: 1px solid #999999;
+}
+
+tfoot input {
+    width: 8em;
+}
+
+caption {
+    caption-side: top;
+    font-size: 100%;
+    font-weight: bold;
+    margin-bottom : 5px;
+}
+
+
+
+/* Horizontal Graph */
+table.horizontal-graph {
+    margin: 0.5em 0 0.5em 0;
+    width: auto;
+    border-collapse: collapse;
+	border-spacing: 1px;
+    border: 1px solid #cccccc;
+    color: #000000;
+    font-size: 100%;
+    line-height: 180%;
+}
+table.horizontal-graph th {
+    padding: 0.3em;
+    color: #333333;
+    background: #E6E1EB !important;
+    border: 1px solid #cccccc;
+}
+th.rate {
+    border: 1px solid #cccccc;
+}
+th.result {
+    background-color: #dddddd;
+    border: 1px solid #cccccc;
+}
+td.sunday {
+    color: #000000;
+    background-color: #f5dfdf;
+    padding: 0.3em 1em 0.3em 1em;
+    border: 1px solid #cccccc;
+}
+td.rate {
+    font-size: 90%;
+    text-align: right;
+    color: #000000;
+    background-color: #F2F1E6;
+    padding-right: 0.3em;
+    border: 1px solid #cccccc;
+}
+
+/* Graph Bar */
+td.key {
+    color: #000000;
+    background-color: #ffffee;
+    padding: 0.3em 1em 0.3em 1em;
+    border: 1px solid #cccccc;
+}
+td.value {
+    color: #000000;
+    font-size: 90%;
+    background-color: #eeeeee;
+    padding: 0.3em 1em 0.3em 1em;
+    border: 1px solid #cccccc;
+}
+
+
+/*
+-----------------------------------------------------------------
+   PAGE NAVIGAGTION LINK
+-----------------------------------------------------------------
+*/
+
+p.flip-link {
+    font-size: 85%;
+    text-align: center;
+}
+p.flip-link a {
+    display: inline;
+    border: 1px solid #cccccc;
+    margin-right: 0px;
+    padding: 2px 6px 2px 6px;
+    background: #eeeeee  url(../_shared/navi_link_bg.png) repeat-x;
+    text-decoration: none;
+}
+p.flip-link a:hover {
+    background-color: #ffffff;
+}
+p.flip-link strong {
+    border: 1px solid #cccccc;
+    margin-right: 0px;
+    padding: 2px 6px 2px 6px;
+    background-color: transparent;
+}
+
+/* Previous Logs Navi Link */
+p#prev-logs {
+    text-align: right;
+}
+p#prev-logs a {
+    display: inline;
+    border: 1px solid #cccccc;
+    margin-right: 2px;
+    padding: 2px 20px 2px 10px;
+    background: #eeeeee url(../_shared/arrow_next.png) no-repeat 100% 50%;
+    text-decoration: none;
+}
+p#prev-logs a:hover {
+    background-color: #ffffff;
+}
+
+/* Prev | Next  */
+span.prev a {
+    padding-left: 1.5em;
+    background: #eeeeee url(../_shared/arrow_prev.png) no-repeat 0% 50%;
+}
+span.next a {
+    padding-right: 1.5em;
+    background: #eeeeee url(../_shared/arrow_next.png) no-repeat 100% 50%;
+}
+
+/*
+-----------------------------------------------------------------
+   CALENDAR TABLE
+-----------------------------------------------------------------
+*/
+#calendar {
+    margin: 1em 0 1em 0;
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #999999;
+    color: #000000;
+    font-size: 100%;
+    line-height: 180%;
+    text-align: center;
+    text-shadow: #cccccc 0.2em 0.2em 0.2em;
+}
+#calendar thead th {
+    padding: 0.2em 0 0.2em 0;
+    color: #333333;
+    background-color: #eeeeee;
+    border: 1px solid #999999;
+    background-image : url(../_shared/gray_stripe.png);
+}
+#calendar thead td {
+    background-image : url(../_shared/gray_stripe.png);
+}
+#calendar tfoot td {
+    padding: 0.7em;
+    color: #000000;
+    background: #eeeeee url(../_shared/gray_stripe.png);
+    border: 1px solid #999999;
+}
+#calendar td {
+    padding: 0.3em 0 0.3em 0;
+    border: 1px solid #999999;
+    background-color: #ffffff;
+    color: #333333;
+    font-size: 100%;
+}
+#calendar th.sunday {
+    border: none;
+    background-color: #f5dfdf;
+    color: #990066;
+}
+#calendar td.log-exists {
+    background-color: #E4D3FF !important;
+}
+/* Prev-Month | Next-Month  */
+a.prev-month {
+    padding-left: 1.5em;
+    background: #eeeeee url(../_shared/arrow_left.png) no-repeat 0% 50%;
+}
+a.next-month {
+    padding-right: 1.5em;
+    background: #eeeeee url(../_shared/arrow_right.png) no-repeat 100% 50%;
+}
+#calendar td.day-of-prev-month,
+#calendar td.day-of-next-month {
+    color: #eeeeee;
+}
+
+/*
+-----------------------------------------------------------------
+   WIDE CONTENT (Access Analyzer)
+-----------------------------------------------------------------
+*/
+
+/* Wide Content Box */
+#wide-content {
+    margin: 0.5em 1em 1em 1em;
+    padding: 1em 2em 2em 1em;
+    width: 95%;
+}
+#wide-content h2 {
+    clear: both;
+    margin: 1em 0 1em 0;
+    border-bottom: 1px solid #cccccc;
+    padding-bottom: 5px;
+}
+#wide-content h3, h4 {
+    clear: both;
+}
+#wide-content p {
+    clear: both;
+    margin: 1em;
+}
+
+/* Top Right Form */
+#analyze-date {
+    margin: 1em 1em 1em 1em;
+    padding: 0.5em;
+    border: none;
+}
+
+
+
+/*
+-----------------------------------------------------------------
+   COMMENT / FORUM
+-----------------------------------------------------------------
+*/
+
+/* Status Icon of Index Page */
+#forum-topic-table a {
+	margin: 0 0.5em 0 0;
+	padding: 0 0 4px 14px;
+	background: #ffffff url(../_shared/anchor_bg.png) 0px 0px no-repeat;
+    text-shadow: #ffffff 0.2em 0.2em 0.2em;
+}
+.a-footer a:hover {
+	background-position: 0px -30px;
+}
+.a-footer a:active {
+	background-position: 0px -60px;
+} 
+a.status-on {
+	background-position: 0px -90px !important;
+}
+a.status-on:hover {
+	background-position: 0px -30px !important;
+}
+a.status-on:active {
+	background-position: 0px -60px !important;
+}
+
+#forum-topic-table a.latest-post {
+    padding: 0 0 0 5px;
+    background: #ffffff none !important;
+}
+
+
+/* Page Navigation Links */
+ul.flip-menu {
+    text-align: left;
+    margin: 1em 0 1em 0;
+    padding: 0.8em 0 0.8em 0;
+    border-top: 1px solid #cccccc;
+    border-bottom: 1px solid #cccccc;
+}
+ul.flip-menu li {
+    display: inline;
+}
+ul.flip-menu a {
+    display: inline;
+    border: 1px solid #cccccc;
+    padding: 5px 10px 4px 10px;
+    margin-right: 0;
+    background: #eeeeee url(../_shared/gray_stripe.png);
+    text-decoration: none;
+}
+span.cur-tab {
+    border: 1px solid #cccccc;
+    padding: 5px 10px 4px 10px;
+    margin-right: 2px;
+    margin-bottom: 0;
+    background-color: transparent;
+}
+
+/* Forum Topic Table */
+#forum-topic-table {
+    width: 100%;
+    line-height: 180%;
+    border-collapse: collapse;
+	border-spacing: 1px;
+    border: 1px solid #cccccc;
+    font-size: 1em;
+    color: #000000;
+}
+#forum-topic-table th {
+    padding: 0.3em;
+    border: 1px solid #cccccc;
+    background: #eeeeee url(../_shared/gray_stripe.png);
+    color: #333333;
+    font-size: 1em;
+    text-align: center;
+}
+#forum-topic-table td {
+    padding: 0.3em;
+    color: #000000;
+    background-color: #ffffff;
+    border: 1px solid #cccccc;
+}
+td.last-modified {
+    width: 160px;
+    font-style: italic;
+}
+/* This is only used in "Admin" mode */
+td.user-info {
+    width: 250px;
+    color: #000000;
+    background-color: #ffffee;
+    padding: 0.5em;
+    border: 1px solid #cccccc;
+    font-size: 0.9em;
+    font-style: italic;
+}
+
+#trash-full {
+    padding: 1em 1em 1em 2.5em;
+    background: #ffffff url(../_shared/trash_full.png) no-repeat 0 20%;
+}
+
+#trash-empty {
+    padding: 1em 1em 1em 2.5em;
+    background: #ffffff url(../_shared/trash_empty.png) no-repeat 0 20%;
+}
+
+/* Topic Comment Box */
+.comments {
+    border: 1px solid #cccccc;
+    margin: 1em 0em 1.5em 0.5em;
+    background-color: #ffffff;
+}
+h2#topic-title {
+    margin: 0em !important;
+    padding: 0.5em 1em 0.5em 0.5em !important;
+    border-bottom: 1px solid #cccccc !important;
+    background: #eeeeee url(../_shared/gray_stripe.png);
+    color: #000000 !important;
+    font-style: italic;
+    text-shadow: #999999 0.2em 0.2em 0.2em;
+}
+div.comments h3 {
+    font-size: 1em;
+    font-style: italic;
+    margin: 0em;
+    padding: 0.5em 1em 0.5em 0.5em;
+    border-bottom: 1px solid #cccccc;
+    color: #000000;
+    background-color: #eeeeee;
+    background-image : url(../_shared/gray_stripe.png);
+}
+
+.comments p, .comments pre, .comments blockquote {
+	margin: 0.5em 1.5em 0.5em 1.5em;
+	padding: 0.2em 0em 0.2em 0em;
+}
+
+
+/* "Post Your Comment" Form */
+#comment-submit {
+    color: #000000;
+    background-color: #eeeeee;
+    background-image : url(../_shared/gray_stripe.png);
+    border: 1px solid #cccccc;
+    text-align: center;
+    padding: 0.5em;
+}
+
+textarea#comment, textarea#message {
+    width: 100%;
+}
+
+
+/**
+ * Comment Text Color
+ */
+
+#comment-type-0, .comment {
+    color: #000000;
+    background-color: transparent;
+}
+#comment-type-1, .info {
+    color: #6666CC;
+    background-color: transparent;
+}
+#comment-type-2, .question {
+    color: #993366;
+    background-color: transparent;
+}
+#comment-type-3, .objection {
+    color: #CC9933;
+    background-color: transparent;
+}
+
+
+/* Quote anchor link */
+.quote a, .edit a {
+    font-size: 80%;
+    border: 1px solid #cccccc !important;
+    margin: 0 0 0 0.5em;
+    padding: 2px 10px 2px 10px;
+    background-color: #eeeeee;
+    text-decoration: none;
+}
+.quote a:hover, .edit a:hover {
+    background-color: #ffffff;
+    border: 1px solid #dddddd;
+    text-decoration: none;
+}
+
+
+/* Quote box in "Topic" thread */
+
+.quote1 {
+    color: #0000DD;
+    background-color: #eeffdc;
+    background-image : none;
+    border-left: 2px solid #0000DD;
+    padding: 0.1em 1em 0.1em 0.8em;
+}
+.quote2 {
+    color: #009900;
+    background-color: #eeffdc;
+    background-image : none;
+    border-left: 2px solid #009900;
+    padding: 0.1em 1em 0.1em 0.8em;
+}
+.quote3 {
+    color: #540000;
+    background-color: #eeffdc;
+    background-image : none;    
+    border-left: 2px solid #540000;
+    padding: 0.1em 1em 0.1em 0.8em;
+}
+
+
+/* User Info */
+.user-info {
+    width: 30%;
+}
+.mod-del {
+    width: 10%;
+    padding: 0.3em;
+    background-color: #ffffff;
+    color: #000000;
+}
+
+
+/* Hint */
+a.hint:link, a.hint:visited {
+    margin: 0 0 0 0.5em;
+    padding: 1px 3px 1px 3px;
+    border: 1px solid #cccccc !important;
+    background-color: #eeeeee;
+    font-family: Lucida Grande, sans-serif;
+    font-size: 80%;
+    text-decoration: none;
+}
+
+/*
+ ==================================
+   RSS BOX (SAMPLE)
+ ==================================
+ */
+ul.rss-list {
+    padding-left: 0;
+}
+li.open {
+    list-style: none;
+    text-indent      : 0;
+}
+li.close {
+    list-style: none;
+}
+li.no-img {
+    list-style: none;
+    list-style-image : none;
+}
+.rss-date {
+    font-size: x-small;
+    font-style: italic;
+    color: #666666;
+    background-color: #ffffff;
+    padding-left: 0.5em;
+}
+
+ 
+/*
+-----------------------------------------------------------------
+   TRACKBACK / COMMENT
+-----------------------------------------------------------------
+*/
+#trackback-list {
+    margin-top: 2em;
+    padding: 0;
+    border: 1px solid #dddddd;
+}
+#comment-list {
+    margin-top: 1em;
+    padding: 0;
+    border: 1px solid #dddddd;
+}
+#trackback-list h4 {
+    margin: 0px;
+	border-bottom: 1px solid #dddddd;
+	padding: 0.3em 1em 0.3em 2.5em;
+	color: #666666;
+    background: #eeeeee url(../_shared/bg_trackback_icn.png) no-repeat;
+}
+#comment-list h4 {
+    margin: 0px;
+	border-bottom: 1px solid #dddddd;
+	padding: 0.3em 1em 0.3em 2.5em;
+	color: #666666;
+    background: #eeeeee url(../_shared/bg_comment_icn.png) no-repeat;
+}
+#trackback-list h5, #comment-list h5 {
+    margin: 1em;
+    font-size: 1em;
+	border-bottom: 1px solid #dddddd;
+	padding: 0.3em 1em 0.3em 0.5em;
+	color: #666666;
+}
+#trackback-list p, #comment-list p {
+	margin: 0.5em 2em 0.5em 2em;
+	font-size: 1em;
+}
+#comment-list pre, #comment-list blockquote {
+	margin: 0.5em 1.5em 0.5em 1.5em;
+	padding: 0.2em 0em 0.2em 0em;
+}
+p.gray-out {
+    color: #666666;
+    font-size: 1em;
+    font-style: italic;
+}
+.author {
+    color: #666666;
+    font-size: 90%;
+    font-style: italic;
+}
+.notice {
+    color: #FF0000;
+    font-size: 1.2em;
+}
+
+/* Admin (Sending Trackback Ping) */
+.trackback-uri {
+    padding: 0.5em;
+    margin: 2em 0;
+    border: 1px solid #cccccc;
+    background-color: #eeeeee;
+    color: #333333;
+    font-size: 90%;
+    font-style: italic;
+}
+/* send trackback ping form */
+#trackback-form {
+    padding: 0.5em 1em 2em 1.5em;
+    border: 1px solid #cccccc;
+}
+
+
+/* Announcement Box on Top */
+div#announce {
+    border: 1px solid #dddddd;
+    margin: 1.5em 0em 3em 0em;
+}
+div#announce h2 {
+    margin: 0em;
+    padding: 0.5em 1em 0.5em 0.5em;
+    border: 0 !important;
+    border-bottom: 1px solid #dddddd !important;
+    background: #eeeeee url(../_shared/gray_stripe.png);
+    color: #000000;
+    text-shadow: #cccccc 0.2em 0.2em 0.2em;
+}
+#switch-lang {
+    font-size: 0.9em;
+    text-align: right;
+    margin: 0.5em 1em 0em 0em;
+}
+div#announce h3 {
+    clear: both;
+    margin: 0;
+    padding: 0.5em 1em 0.5em 0.5em;
+    border-bottom: 1px solid #dddddd;
+    color: #000000;
+}
+img.p_blog-icon {
+    margin: 0em 1em 1em 1em;
+    float: left;
+}
+img.mini-logo {
+    margin: 0em 1em 0em 0em;
+}
+img.rss {
+    margin: 0em;
+}
+div#announce p {
+    margin: 1em 1em 0.2em 2em;
+    line-height: 170%;
+}
+div#announce ul {
+    margin: 0.5em;
+    border: none;
+}
+div#announce address {
+    margin: 1.5em 1em;
+}
+
+.toggle {
+    display: none;
+}
+
+
+
+/*
+-----------------------------------------------------------------
+   ADMIN
+-----------------------------------------------------------------
+*/
+select.table-list {
+	width: 10em;
+	padding-top: 1em;
+	padding-bottom: 10em;
+	height: 15em;
+	background-color: #eeeeee; 
+	border: 1px solid #333333;
+}
+
+#account-manager {
+    padding: 0.5em 0.5em 0.5em 3.5em !important;
+    background: transparent url(../_shared/accounts.png) no-repeat 0 50% !important;
+}
+
+#root-user-only {
+    padding: 0.5em 0.5em 0.5em 3em !important;
+    margin: 1em 0 1em 1em;
+    background: transparent url(../_shared/warning_hand.png) no-repeat 0 50% !important;
+}
+
+/**
+ * Draft Logs and files link
+ */
+#draft dt {
+    color: #333333;
+    font-size: 90%;
+    padding-left: 0.5em;
+    border-left: 1px solid #cccccc;
+    border-bottom: 1px solid #cccccc;
+}
+
+#draft dd {
+    font-size: 90%;
+    margin: 0.5em 0.5em 0.5em 1em;
+    text-indent: 2em;
+    border-bottom: 1px solid #cccccc;
+}
+
+#draft-log {
+    background: transparent url(../_shared/document.png) no-repeat 0 40%;
+}
+
+#draft-file {
+    background: transparent url(../_shared/file.png) no-repeat 0 40%;
+}
+
+#add-new {
+    text-indent: 2em;
+    background: transparent url(../_shared/new_post.png) no-repeat 0 50%;
+}
+
+#edit {
+    text-indent: 2em;
+    background: transparent url(../_shared/edit.png) no-repeat 0 50%;
+}
+
+
+/* Button-Like Link */
+a.link-button {
+    padding: 2px 5px 2px 5px;
+    margin-bottom: 3px;
+    font-size: 90%;
+    text-decoration: none;
+    color: #000000;
+    background: #eeeeee url(../_shared/button_bg.png) repeat-x;
+    border: 1px solid #cccccc !important;
+}
+a.link-button:active {
+    text-decoration: none;
+    background: #eeeeee url(../_shared/button_bg.png) repeat-x;
+    border-top: 1px solid #666666 !important;
+    border-left: 1px solid #666666 !important;
+    border-right: 1px solid #eeeeee !important;
+    border-bottom: 1px solid #eeeeee !important;
+}
+
+/**
+ * Login Status
+ */
+.session-off {
+    text-indent: 2em;
+    background: transparent url(../_shared/lock_off.png) 0.5em no-repeat;
+}
+
+.session-on {
+    text-indent: 2em;
+    background: transparent url(../_shared/lock_on.png) 0.5em no-repeat;
+}
+
+
+/**
+ * Image Preview
+ */
+.preview {
+/*    display: none; */
+    margin: 0.5em;
+}
+
+
+/**
+ * Against comment spam
+ */
+.MapsrOfDleif {
+    display: none;
+}

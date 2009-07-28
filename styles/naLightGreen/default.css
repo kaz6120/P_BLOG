@@ -1,0 +1,614 @@
+@charset "utf-8";
+@import url(../_import/common.css);
+@import url(../_import/text_decorations.css);
+
+/*
+	naLightGreen
+		made by Novu@Napdays
+*/
+
+/*
+	フォント用黄緑
+	#669933
+	
+	黄緑
+	#8DC63F
+	
+	オレンジ
+	#ff9900
+*/
+
+*{
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+/*
+-------------------------------------------------
+	BASE
+-------------------------------------------------
+*/
+
+body {
+	margin: 10px;
+	padding: 0px;
+	background: #C4DF9B url(./resources/bg.gif) repeat-x;
+	color: #333333;
+	font-family: "ＭＳ Ｐゴシック", "Hiragino Kaku Gothic Pro", Verdana, sans-serif;
+	font-size: small !important;
+	font-size: x-small;
+	line-height: 160%;
+	text-align: center;
+}
+
+#wrapper {
+	width: 700px;
+	margin: 0 auto;
+	padding: 0;
+	background: #ffffff;
+	text-align: left;
+}
+
+/* Anchor */
+
+a:link {
+	color: #669933;
+	text-decoration: none;
+}
+
+a:visited {
+	color: #666666;
+	text-decoration: none;
+}
+
+a:hover, a:active {
+	background-color: transparent;
+	color: #ff9900;
+	text-decoration: none;
+}
+
+img { border: 0; }
+
+
+/* Forms */
+input, textarea, select {
+	font-family: "ＭＳ Ｐゴシック", "Hiragino Kaku Gothic Pro", Verdana, sans-serif;
+    font-size: 100%;
+}
+
+input[type="text"] {
+	font-family: "ＭＳ Ｐゴシック", "Hiragino Kaku Gothic Pro", Verdana, sans-serif;
+    font-size: 100%;
+}
+
+fieldset {
+    margin: 2em 0 1em 0;
+    padding: 2em 0 1.5em 1em;
+    border: 0;
+    border-top: 1px solid #cccccc;
+    border-bottom: 1px solid #cccccc;
+}
+
+legend {
+    margin-left: 1em;
+    padding: 0 2em 0 2em;
+    border: 1px solid #cccccc;
+}
+
+label {
+	margin: 0;
+	padding: 0;
+}
+
+.noscript {
+    display: inline;
+}
+
+
+/*
+-------------------------------------------------
+	HEADER
+-------------------------------------------------
+*/
+
+#header {
+	height: 70px;
+	margin: 0;
+	padding: 0;
+	background: #fff url(./resources/head.gif);
+}
+
+#header h1 {
+	float: left;
+	margin: 0 10px;
+	padding: 15px 5px;
+	color: #8DC63F;
+	font-family: verdana, sans-serif;
+	font-size: 160%;
+	letter-spacing: 0.1em;
+}
+
+#header h1 a:link, #header h1 a:visited {
+    color: #8DC63F;
+    text-decoration: none;
+}
+
+#header h1 a:hover {
+    color: #ff9900;
+    text-decoration: none;
+}
+
+#subtitle {
+	color: #999999;
+	font-style: italic;
+	line-height: 50px;
+}
+
+
+/*
+-------------------------------------------------
+	CONTENT BOX
+-------------------------------------------------
+*/
+
+#content {
+	float: left;
+	width: 500px;
+	margin: 0;
+	padding: 0;
+	background: #ffffff;
+}
+
+#content h2 {
+	margin: 10px 20px;
+}
+
+#content h2.date-title {
+	margin: 10px 0;
+	padding: 0 0 0 5px;
+	border-left: 5px solid #8DC63F;
+	color: #777;
+	font-family: arial, verdana, sans-serif;
+	font-size: 130%;
+	letter-spacing: 0.1em;
+}
+
+h3.article-title, #content h4 {
+	margin: 0;
+	padding: 0;
+	border-bottom: 1px solid #8DC63F;
+	color: #666;
+	font-family: "ＭＳ Ｐゴシック", "Hiragino Kaku Gothic Pro", Verdana, sans-serif;
+	font-size: 100%;
+	font-weight: bold;
+}
+
+div.date {
+	width: 100%;
+	color: #666;
+	text-align: right;
+}
+
+.section {
+	margin: 0 20px 20px 20px;
+}
+
+.section .section {
+	margin: 0;
+}
+
+.section p {
+	color: #333333;
+	margin: 1em 0 1.3em 0;
+}
+
+.section blockquote {
+	width: 90%;
+	margin: 10px;
+    padding: 10px 20px 10px 10px;
+    border-left: 5px solid #99cc66;
+    border-bottom: 0;
+    background: #eeffdc url(../_shared/top_right.png) no-repeat right top;
+    color: #333333;
+}
+
+img.thum {
+	margin: 0;
+	padding: 5px;
+	border: 1px solid #ccc;
+}
+
+
+/* Article footer */
+
+.a-footer {
+	margin: 0 0 20px 0;
+	padding: 0;
+	border-top: 1px solid #8DC63F;
+	font-family: "ＭＳ Ｐゴシック", "Hiragino Kaku Gothic Pro", Verdana, sans-serif;
+	text-align: right;
+}
+/**
+ * Footer Anchors
+ */
+.a-footer a {
+	margin: 0 0.5em 0 0;
+	padding: 0px 0px 4px 14px;
+	background: #ffffff url(../_shared/anchor_bg.png) 0px 0px no-repeat;
+    font-size: 12px;
+    text-shadow: #ffffff 0.2em 0.2em 0.2em;
+        
+    /* For Debug */
+    /* border: 1px solid #6600CC; */
+
+}
+.a-footer a:hover, a.read-more:hover {
+	background-position: 0px -30px;
+}
+.a-footer a:active, a.read-more:hover {
+	background-position: 0px -60px;
+} 
+a.status-on {
+	background-position: 0px -90px !important;
+}
+a.status-on:hover {
+	background-position: 0px -30px !important;
+}
+a.status-on:active {
+	background-position: 0px -60px !important;
+}
+
+/* Previous Logs Navi Link */
+
+p#prev-logs {
+	margin: 5px 20px;
+	padding: 0;
+}
+
+/*
+-------------------------------------------------
+	MENU BOX
+-------------------------------------------------
+*/
+
+#menu-box {
+	float: right;
+	width: 200px;
+	margin: 0;
+	padding: 10px 0;
+	background: #ffffff;
+}
+
+/* Contents Navi */
+#content-menu {
+	width: 100%;
+	margin: 0 0 20px 0;
+	padding: 0;
+}
+
+#content-menu h2{
+	display:none;
+}
+
+ul.menu {
+    list-style: none;
+	margin: 0 20px 0 0;
+    padding: 0;
+    border-top: 1px solid #cccccc;
+}
+
+li.menu {
+    list-style: none;
+    margin-bottom: 0;
+    border-bottom: 1px solid #cccccc;
+    line-height: 14px;
+    text-indent: 0;
+}
+
+/* Current Page Menu */
+li.cur-menu {
+	list-style: none;
+	height: 22px;
+	margin: 0;
+	padding: 0 10px;
+	border: 1px solid #cccccc;
+	border-top: none;
+	background: #ffffff;
+	color: #669933;
+	line-height: 22px;
+	text-indent: 0;
+}
+
+a.menu, a.menu:visited {
+    display: block;
+	height: 22px;
+    margin: 0;
+	padding: 0 10px;
+	border-right: 1px solid #cccccc;
+	border-left: 1px solid #cccccc;
+	background: #eeeeee url(./resources/menu_bg.gif) 0 0 repeat-x;
+    color: #666666;
+	line-height: 22px;
+    text-decoration: none;
+}
+
+a.menu:hover, a.menu:active {
+	background: #fafafa;
+    color: #ff9900;
+    text-decoration: none;
+}
+
+/* ---------------------------------------------- */
+
+div.menu {
+	margin: 20px 20px 20px 0;
+    padding: 0 10px 10px 10px;
+    border: 1px solid #cccccc;
+	font-family: "ＭＳ Ｐゴシック", "Hiragino Kaku Gothic Pro", Verdana, sans-serif;
+}
+
+div.menu h2 {
+	margin: 0 -10px 10px -10px;
+	padding: 4px 10px;
+    background: #eeeeee;
+	border-bottom: 1px solid #cccccc;
+	background: #eeeeee url(./resources/menu_bg.gif) 0px 0px repeat-x;
+    color: #333333;
+    font-size: 100%;
+	font-weight: normal;
+	line-height: 14px;
+}
+
+div.menu p {
+	margin: 0;
+	padding: 5px;
+}
+
+div.menu ul {
+    list-style-type: square;
+	margin: 0 0 0.5em 20px;
+	padding: 0;
+	line-height: 160%;
+    font-size: 90%;
+}
+
+#search {
+	margin: 0;
+	padding: 0;
+}
+
+#search input {
+	
+}
+
+input#search-button {
+	width: 30px;
+	margin: 0;
+}
+
+span#search-plus {
+	vertical-align: top !important;
+	vertical-align: middle;
+}
+
+#recent-entries li {
+	list-style-image: url(./resources/entry.gif);
+}
+
+#recent-comments li {
+	list-style-image: url(./resources/comment.gif);
+}
+
+#recent-trackbacks li {
+	list-style-image: url(./resources/trackback.gif);
+}
+
+/* Archive, Category, CSS-Swicher Form */
+#archives, 
+#category,
+#css-form {
+    margin: 0 0 10px 0;
+}
+
+#archives select, 
+#category select,
+#css-form select {
+	width: 150px;
+}
+
+/* Admin Menu */
+#logout {
+	margin: 0 -10px -10px -10px;
+	padding: 0.5em 0;
+    border-top: 1px solid #999999;
+    background: #eeeeee url(../_shared/gray_stripe.png);
+    text-align: center;
+}
+
+h2.menu-box {
+	margin: 0 10px;
+	padding: 0;
+    font-size: 100%;
+}
+
+#menu-box h3 {
+    font-size: 110%;
+}
+
+/* CALENDAR TABLE */
+
+#calendar {
+    margin: 0;
+	width: 90%;
+    border-collapse: collapse;
+    border: 1px solid #cccccc;
+    color: #333333;
+    line-height: 150%;
+    text-align: center;
+    text-shadow: #cccccc 0.2em 0.2em 0.2em;
+}
+
+#calendar thead th {
+	height: 23px;
+    padding: 0;
+    color: #999999;
+    background-color: #eeeeee;
+    border: 1px solid #cccccc;
+    background-image : url(./resources/menu_bg.gif);
+}
+
+#calendar thead th[abbr="Year and Month"] {
+	height: 23px;
+    padding: 0;
+    color: #333333;
+    background-color: #eeeeee;
+    border: 1px solid #cccccc;
+    background-image : url(./resources/menu_bg.gif);
+}
+
+#calendar thead td {
+    background-image : none;
+}
+
+#calendar tfoot td {
+	height: 23px;
+    padding: 0;
+    color: #000000;
+    background-image : url(./resources/menu_bg.gif);
+    border: 1px solid #cccccc;
+}
+
+#calendar td {
+    padding: 0;
+    border: 1px solid #cccccc;
+    background-color: #ffffff;
+    color: #333333;
+    font-size: 100%;
+}
+
+#calendar th.sunday {
+    border: none;
+    background-color: #f5dfdf;
+    color: #ff9900;
+}
+
+#calendar td.log-exists {
+    background-color: #ffc !important;
+    color: #ff9900;
+}
+
+/* Prev-Month | Next-Month  */
+
+a.prev-month {
+    padding-left: 1.5em;
+    background: url(../_shared/arrow_left.png) no-repeat 0% 50%;
+}
+
+a.next-month {
+    padding-right: 1.5em;
+    background: url(../_shared/arrow_right.png) no-repeat 100% 50%;
+}
+
+#calendar td.day-of-prev-month,
+#calendar td.day-of-next-month {
+    color: #eeeeee;
+}
+
+/* Archive, Category, CSS-Swicher Form */
+#archives, 
+#category,
+#css-form {
+    margin: 10px 0px 10px 0px;
+}
+
+/* Admin */
+
+h2.menu-box {
+	margin: 0 0 10px 0;
+}
+
+#draft {
+	margin: 0 20px 0 0;
+}
+/*
+-------------------------------------------------
+	FOOTER
+-------------------------------------------------
+*/
+#footer {
+	clear: both;
+	margin: 0;
+	padding: 10px 20px;
+	background: url(./resources/footer.gif) no-repeat left bottom;
+	font-family: "ＭＳ Ｐゴシック", "Hiragino Kaku Gothic Pro", Verdana, sans-serif;
+}
+
+/* Validator Logos */
+.logo {
+    float: left;
+    margin: 0px 1em 0.5em 0px;
+}
+
+.validator {
+    margin: 0px 5px 5px 0px;
+}
+
+#validators, #w3c-validators {
+    margin: 0;
+    padding: 0;
+}
+
+#validators a:link, #validators a:visited,
+#rss:link, #rss:visited,
+#rss2:link, #rss2:visited  {
+    width: 81px;
+    margin: 0px 3px 0px 0px;
+    padding: 2px 8px 2px 8px; 
+    border: 1px solid #666666;
+    background: #99CC33 url(./resources/bg_s.png);
+    color: #ffffff;
+    font-size: 11px;
+    text-align: center;
+    text-decoration : none;
+
+}
+
+#validators a:hover,
+#rss:hover,
+#rss2:hover  {
+    margin: 0px 3px 0px 0px;
+    padding: 2px 8px 2px 8px; 
+    border: 1px solid #666666;
+    background: #99CC33 url(./resources/bg_s.png);
+    color: #000000;
+    text-shadow: #336600 0.2em 0.2em 0.2em;
+    text-decoration : none;
+}
+
+#validators a:active,
+#rss:active,
+#rss2:active {
+    margin: 0px 3px 0px 0px;
+    padding: 2px 8px 2px 8px;
+    border: 1px solid #ff6600;
+    text-decoration : none;
+}
+
+address {
+    margin: 0.5em 0 0 0;
+	font-style: normal;
+}
+
+#page-generation {
+    clear: both;
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff;
+    color: #666666;
+    font-size: 90%;
+}
+
+#trackbacks, #comments {
+    padding: 0.3em 1em 0.3em 2.5em !important;
+	border-bottom: 1px solid #dddddd !important;
+}
